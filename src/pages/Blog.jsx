@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 // Attach page-scoped CSS dynamically
 function usePageStyles(hrefs) {
   useEffect(() => {
@@ -15,6 +15,43 @@ function usePageStyles(hrefs) {
 
 export default function Blog() {
   usePageStyles(['/css/blog.css'])
+  const [activeCategory, setActiveCategory] = useState('all')
+
+  const posts = useMemo(() => ([
+    {
+      id: 1,
+      category: 'recipes',
+      title: '5 Quick Organic Salad Recipes for Busy Weekdays',
+      img: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=400&h=250&fit=crop',
+      excerpt: 'Discover delicious and nutritious salad recipes you can prepare in under 15 minutes.'
+    },
+    {
+      id: 2,
+      category: 'tips',
+      title: 'How to Store Organic Vegetables to Keep Them Fresh',
+      img: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=400&h=250&fit=crop',
+      excerpt: 'Best storage methods to extend the life of your organic vegetables.'
+    },
+    {
+      id: 3,
+      category: 'guides',
+      title: "Spring Produce Guide: What's in Season Now",
+      img: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=250&fit=crop',
+      excerpt: 'Explore the best spring vegetables and fruits currently in season.'
+    },
+    {
+      id: 4,
+      category: 'stories',
+      title: "My Journey to Organic Living: A Customer's Story",
+      img: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=250&fit=crop',
+      excerpt: 'Sarah’s transformation to organic living and how it changed her family’s health.'
+    },
+  ]), [])
+
+  const filteredPosts = useMemo(() => {
+    if (activeCategory === 'all') return posts
+    return posts.filter(p => p.category === activeCategory)
+  }, [posts, activeCategory])
   return (
     <main className="blog-main">
       <section className="blog-hero">
@@ -27,11 +64,22 @@ export default function Blog() {
       <section className="blog-section">
         <div className="container">
           <div className="blog-filters">
-            <button className="filter-btn active" data-category="all">All Posts</button>
-            <button className="filter-btn" data-category="recipes">Easy Recipes</button>
-            <button className="filter-btn" data-category="tips">Healthy Tips</button>
-            <button className="filter-btn" data-category="guides">Seasonal Guides</button>
-            <button className="filter-btn" data-category="stories">Customer Stories</button>
+            {[
+              {key: 'all', label: 'All Posts'},
+              {key: 'recipes', label: 'Easy Recipes'},
+              {key: 'tips', label: 'Healthy Tips'},
+              {key: 'guides', label: 'Seasonal Guides'},
+              {key: 'stories', label: 'Customer Stories'}
+            ].map(c => (
+              <button
+                key={c.key}
+                className={`filter-btn ${activeCategory === c.key ? 'active' : ''}`}
+                data-category={c.key}
+                onClick={() => setActiveCategory(c.key)}
+              >
+                {c.label}
+              </button>
+            ))}
           </div>
 
           <div className="row">
@@ -42,38 +90,24 @@ export default function Blog() {
               </div>
 
               <div id="blogGrid" className="blog-grid">
-                <article className="blog-card" data-category="recipes">
-                  <div className="blog-card-image">
-                    <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=400&h=250&fit=crop" alt="" />
-                    <div className="blog-category">Easy Recipes</div>
-                  </div>
-                  <div className="blog-content">
-                    <div className="blog-meta">
-                      <span><i className="fas fa-calendar"></i> March 15, 2024</span>
-                      <span><i className="fas fa-user"></i> By Admin</span>
-                      <span><i className="fas fa-comments"></i> 12 Comments</span>
+                {filteredPosts.map(post => (
+                  <article key={post.id} className="blog-card" data-category={post.category}>
+                    <div className="blog-card-image">
+                      <img src={post.img} alt="" />
+                      <div className="blog-category">{post.category === 'recipes' ? 'Easy Recipes' : post.category === 'tips' ? 'Healthy Tips' : post.category === 'guides' ? 'Seasonal Guides' : 'Customer Stories'}</div>
                     </div>
-                    <h3 className="blog-title"><a href="#">5 Quick Organic Salad Recipes for Busy Weekdays</a></h3>
-                    <p className="blog-excerpt">Discover delicious and nutritious salad recipes that you can prepare in under 15 minutes using fresh organic ingredients from your local market.</p>
-                    <a href="#" className="read-more">Read More <i className="fas fa-arrow-right"></i></a>
-                  </div>
-                </article>
-                <article className="blog-card" data-category="tips">
-                  <div className="blog-card-image">
-                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=400&h=250&fit=crop" alt="" />
-                    <div className="blog-category">Healthy Tips</div>
-                  </div>
-                  <div className="blog-content">
-                    <div className="blog-meta">
-                      <span><i className="fas fa-calendar"></i> March 12, 2024</span>
-                      <span><i className="fas fa-user"></i> By Admin</span>
-                      <span><i className="fas fa-comments"></i> 8 Comments</span>
+                    <div className="blog-content">
+                      <div className="blog-meta">
+                        <span><i className="fas fa-calendar"></i> March 2024</span>
+                        <span><i className="fas fa-user"></i> By Admin</span>
+                        <span><i className="fas fa-comments"></i> 0 Comments</span>
+                      </div>
+                      <h3 className="blog-title"><a href="#">{post.title}</a></h3>
+                      <p className="blog-excerpt">{post.excerpt}</p>
+                      <a href="#" className="read-more">Read More <i className="fas fa-arrow-right"></i></a>
                     </div>
-                    <h3 className="blog-title"><a href="#">How to Store Organic Vegetables to Keep Them Fresh</a></h3>
-                    <p className="blog-excerpt">Learn the best storage methods to extend the life of your organic vegetables and reduce waste while maintaining their nutritional value.</p>
-                    <a href="#" className="read-more">Read More <i className="fas fa-arrow-right"></i></a>
-                  </div>
-                </article>
+                  </article>
+                ))}
               </div>
 
               <div className="blog-pagination">
@@ -98,11 +132,24 @@ export default function Blog() {
                 <div className="sidebar-section">
                   <h3 className="sidebar-title">Categories</h3>
                   <ul className="category-list">
-                    <li className="active" data-category="all">All Posts <span className="category-count">24</span></li>
-                    <li data-category="recipes">Easy Recipes <span className="category-count">8</span></li>
-                    <li data-category="tips">Healthy Tips <span className="category-count">6</span></li>
-                    <li data-category="guides">Seasonal Guides <span className="category-count">5</span></li>
-                    <li data-category="stories">Customer Stories <span className="category-count">5</span></li>
+                    {[
+                      {key: 'all', label: 'All Posts', count: 24},
+                      {key: 'recipes', label: 'Easy Recipes', count: 8},
+                      {key: 'tips', label: 'Healthy Tips', count: 6},
+                      {key: 'guides', label: 'Seasonal Guides', count: 5},
+                      {key: 'stories', label: 'Customer Stories', count: 5},
+                    ].map(c => (
+                      <li
+                        key={c.key}
+                        className={activeCategory === c.key ? 'active' : ''}
+                        data-category={c.key}
+                        onClick={() => setActiveCategory(c.key)}
+                        style={{ cursor: 'pointer' }}
+                      >
+                        {c.label}
+                        <span className="category-count">{c.count}</span>
+                      </li>
+                    ))}
                   </ul>
                 </div>
 
