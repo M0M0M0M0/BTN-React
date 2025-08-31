@@ -416,6 +416,33 @@ body {
   margin-bottom: 15px;
 }
 
+/* Bundle card equal height buttons */
+.bundle-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.bundle-card .bundle-items {
+  flex: 1;
+}
+
+.bundle-btn {
+  margin-top: auto;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.bundle-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
 /* Newsletter Signup for Exclusive Offers */
 .exclusive-offers {
   background: var(--primary-green);

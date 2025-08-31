@@ -61,7 +61,13 @@ export default function Header() {
 
   // Handle category navigation
   const handleCategoryClick = (category) => {
-    navigate(`/product?category=${category}`);
+    // Check if it's an offers category
+    const offersCategories = ['weekly', 'bogo', 'bundles', 'clearance', 'seasonal', 'gift'];
+    if (offersCategories.includes(category)) {
+      navigate(`/offers?category=${category}`);
+    } else {
+      navigate(`/product?category=${category}`);
+    }
   };
 
   // Close search results when clicking outside
@@ -119,11 +125,11 @@ export default function Header() {
               <li className="nav-item dropdown">
                 <Link className="nav-link dropdown-toggle" to="/offers" id="offersDropdown">SPECIAL OFFERS</Link>
                 <ul className="dropdown-menu">
-                  <li><a className="dropdown-item" href="#">Weekly Discounts</a></li>
-                  <li><a className="dropdown-item" href="#">Buy 1 Get 1 Free</a></li>
-                  <li><a className="dropdown-item" href="#">Seasonal Bundles</a></li>
-                  <li><a className="dropdown-item" href="#">Clearance Sale</a></li>
-                  <li><a className="dropdown-item" href="#">Gift Vouchers</a></li>
+                  <li><a className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('weekly'); }}>Weekly Discounts</a></li>
+                  <li><a className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('bogo'); }}>Buy 1 Get 1 Free</a></li>
+                  <li><a className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('seasonal'); }}>Seasonal Bundles</a></li>
+                  <li><a className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('clearance'); }}>Clearance Sale</a></li>
+                  <li><a className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('gift'); }}>Gift Vouchers</a></li>
                 </ul>
               </li>
               <li className="nav-item dropdown">
