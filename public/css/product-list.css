@@ -81,6 +81,9 @@
   transition: all 0.3s ease;
   position: relative;
   transform-style: preserve-3d;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .product-card:hover {
@@ -141,6 +144,9 @@
 .product-info {
   padding: 1.2rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .product-info h4 {
@@ -237,6 +243,7 @@
   font-size: 0.85rem;
   margin-bottom: 0.8rem;
   line-height: 1.4;
+  flex: 1;
 }
 
 .loading {

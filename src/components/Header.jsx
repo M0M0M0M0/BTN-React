@@ -1,8 +1,9 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useState, useEffect, useRef } from 'react'
 // page-level CSS is linked globally via index.html
 
 export default function Header() {
+  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [showResults, setShowResults] = useState(false);
@@ -58,6 +59,11 @@ export default function Header() {
     console.log('Selected product:', product);
   };
 
+  // Handle category navigation
+  const handleCategoryClick = (category) => {
+    navigate(`/product?category=${category}`);
+  };
+
   // Close search results when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -94,27 +100,20 @@ export default function Header() {
                   <li className="dropdown-submenu">
                     <a className="dropdown-item dropdown-toggle" href="#">Fruits & Vegetables</a>
                     <ul className="dropdown-menu">
-                      <li><a className="dropdown-item" href="#">Fruits</a></li>
-                      <li><a className="dropdown-item" href="#">Vegetables</a></li>
-                      <li><a className="dropdown-item" href="#">Organic Produce</a></li>
+                      <li><a className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('fruits'); }}>Fruits</a></li>
+                      <li><a className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('vegetables'); }}>Vegetables</a></li>
+                      <li><a className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('all'); }}>Organic Produce</a></li>
                     </ul>
                   </li>
                   <li className="dropdown-submenu">
                     <a className="dropdown-item dropdown-toggle" href="#">Juices & Dairy</a>
                     <ul className="dropdown-menu">
-                      <li><a className="dropdown-item" href="#">Organic Juices</a></li>
-                      <li><a className="dropdown-item" href="#">Fresh Dairy Products</a></li>
+                      <li><a className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('juice'); }}>Organic Juices</a></li>
+                      <li><a className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('dairy'); }}>Fresh Dairy Products</a></li>
                     </ul>
                   </li>
-                  <li className="dropdown-submenu">
-                    <a className="dropdown-item dropdown-toggle" href="#">Processed Food</a>
-                    <ul className="dropdown-menu">
-                      <li><a className="dropdown-item" href="#">Snacks</a></li>
-                      <li><a className="dropdown-item" href="#">Dried Fruits</a></li>
-                      <li><a className="dropdown-item" href="#">Packaged Goods</a></li>
-                    </ul>
-                  </li>
-                  <li><a className="dropdown-item" href="#">Skin Care</a></li>
+                  <li><a className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('processed-food'); }}>Processed Food</a></li>
+                  <li><a className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('skin-care'); }}>Skin Care</a></li>
                 </ul>
               </li>
               <li className="nav-item dropdown">

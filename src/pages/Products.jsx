@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useEffect as usePageEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 // Attach page-scoped CSS dynamically
 function usePageStyles(hrefs) {
   usePageEffect(() => {
@@ -19,6 +19,7 @@ const CATEGORIES = ['all','fruits','vegetables','juice','dairy','processed-food'
 
 export default function Products() {
   usePageStyles(['/css/layout.css', '/css/product-list.css'])
+  const [searchParams, setSearchParams] = useSearchParams()
   const [products, setProducts] = useState([])
   const [category, setCategory] = useState('all')
   const [loading, setLoading] = useState(true)
@@ -30,9 +31,23 @@ export default function Products() {
       .finally(() => setLoading(false))
   }, [])
 
+  // Read category from URL parameters
+  useEffect(() => {
+    const categoryFromUrl = searchParams.get('category')
+    if (categoryFromUrl && CATEGORIES.includes(categoryFromUrl)) {
+      setCategory(categoryFromUrl)
+    }
+  }, [searchParams])
+
   const filtered = useMemo(() => {
     return products.filter(p => category === 'all' ? true : p.category === category)
   }, [products, category])
+
+  // Update URL when category changes
+  const handleCategoryChange = (newCategory) => {
+    setCategory(newCategory)
+    setSearchParams({ category: newCategory })
+  }
 
   return (
     <main className="section main">
@@ -46,7 +61,7 @@ export default function Products() {
         <div className="container">
           <div className="filters">
             {CATEGORIES.map(c => (
-              <button key={c} className={category===c? 'active' : ''} onClick={() => setCategory(c)}>
+              <button key={c} className={category===c? 'active' : ''} onClick={() => handleCategoryChange(c)}>
                 {c.toUpperCase()}
               </button>
             ))}
