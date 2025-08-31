@@ -1,19 +1,10 @@
 // page-level CSS is linked globally via index.html
+import Example from './Email';
 
 export default function Footer() {
   return (
     <>
-      <section className="newsletter-section">
-        <div className="footer-content">
-          <div className="footer-text">
-            <h2>Subscribe To Our <br />Newsletter</h2>
-          </div>
-          <div className="footer-form">
-            <input type="email" placeholder="Enter your e-mail" />
-            <button type="submit">SUBSCRIBE</button>
-          </div>
-        </div>
-      </section>
+      <Example />
 
       <div className="my-footer">
         <footer className="footer-bottom">
