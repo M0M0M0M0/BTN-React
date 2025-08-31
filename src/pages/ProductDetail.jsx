@@ -23,7 +23,8 @@ export default function ProductDetail() {
   const [loading, setLoading] = useState(true)
   const [selectedImage, setSelectedImage] = useState(0)
   const [quantity, setQuantity] = useState(1)
-  const [relatedProducts, setRelatedProducts] = useState([])
+  const [otherProducts, setOtherProducts] = useState([])
+
 
   useEffect(() => {
     // Fetch product data
@@ -33,11 +34,13 @@ export default function ProductDetail() {
         const foundProduct = data.products.find(p => p.id === parseInt(id))
         setProduct(foundProduct)
         
-        // Get related products (same category, exclude current product)
-        const related = data.products
-          .filter(p => p.category === foundProduct.category && p.id !== foundProduct.id)
-          .slice(0, 4)
-        setRelatedProducts(related)
+        // Get random other products (exclude current product)
+        const otherProductsList = data.products
+          .filter(p => p.id !== foundProduct.id)
+          .sort(() => Math.random() - 0.5) // Shuffle array
+          .slice(0, 4) // Get 4 random products
+        setOtherProducts(otherProductsList)
+
       })
       .finally(() => setLoading(false))
   }, [id])
@@ -354,25 +357,31 @@ export default function ProductDetail() {
                          <div className="buy-more-section">
                <h3>Other Products</h3>
               <div className="combo-products">
-                {relatedProducts.slice(0, 3).map((relatedProduct, index) => (
-                  <div key={relatedProduct.id} className="combo-item">
-                    <img 
-                      src={`/images/organic-img/${relatedProduct.name.toLowerCase().replace(/\s+/g,'-')}.jpg`}
-                      alt={relatedProduct.name}
-                      className="combo-image"
-                    />
+                {otherProducts.map((otherProduct, index) => (
+                  <div key={otherProduct.id} className="combo-item">
+                    <Link to={`/product/${otherProduct.id}`} className="combo-image-link">
+                      <img 
+                        src={`/images/organic-img/${otherProduct.name.toLowerCase().replace(/\s+/g,'-')}.jpg`}
+                        alt={otherProduct.name}
+                        className="combo-image"
+                      />
+                    </Link>
                     <div className="combo-info">
-                      <div className="combo-name">{relatedProduct.name}</div>
+                      <Link to={`/product/${otherProduct.id}`} className="combo-name-link">
+                        <div className="combo-name">{otherProduct.name}</div>
+                      </Link>
                       <div className="combo-price">
-                        {formatPrice(relatedProduct.price)}/{relatedProduct.quantity}
+                        {formatPrice(otherProduct.price)}/{otherProduct.quantity}
                       </div>
-                                            {relatedProduct.discount > 0 && relatedProduct.originalPrice ? (
+                                            {otherProduct.discount > 0 && otherProduct.originalPrice ? (
                         <div className="combo-discount">
-                          {formatPrice(relatedProduct.originalPrice)} -{relatedProduct.discount}%
+                          {formatPrice(otherProduct.originalPrice)} -{otherProduct.discount}%
                         </div>
                       ) : null}
                     </div>
-                                         <button className="combo-buy-btn">Buy</button>
+                                         <Link to={`/product/${otherProduct.id}`}>
+                      <button className="combo-buy-btn">Buy</button>
+                    </Link>
                   </div>
                 ))}
               </div>
@@ -392,33 +401,7 @@ export default function ProductDetail() {
           </div>
         </div>
 
-        {/* Related Products */}
-                 <div className="related-products-section">
-           <h2>Related Products</h2>
-          <div className="related-products-grid">
-            {relatedProducts.map((relatedProduct) => (
-              <div key={relatedProduct.id} className="related-product-card">
-                <img 
-                  src={`/images/organic-img/${relatedProduct.name.toLowerCase().replace(/\s+/g,'-')}.jpg`}
-                  alt={relatedProduct.name}
-                  className="related-product-image"
-                />
-                <div className="related-product-info">
-                  <h4>{relatedProduct.name}</h4>
-                  <div className="related-product-price">
-                    {formatPrice(relatedProduct.price)}/{relatedProduct.quantity}
-                  </div>
-                  {relatedProduct.discount > 0 && relatedProduct.originalPrice ? (
-                    <div className="related-product-discount">
-                      {formatPrice(relatedProduct.originalPrice)} -{relatedProduct.discount}%
-                    </div>
-                  ) : null}
-                                     <button className="related-buy-btn">BUY</button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+                
       </div>
     </main>
   )

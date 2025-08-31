@@ -27,7 +27,7 @@
 /* Main Container */
 .product-detail-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 65% 35%;
   gap: 3rem;
   margin-bottom: 4rem;
 }
@@ -47,7 +47,7 @@
 
 .main-product-image {
   width: 100%;
-  height: 400px;
+  height: 360px;
   object-fit: cover;
   display: block;
 }
@@ -391,7 +391,7 @@
 }
 
 .current-price {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: bold;
   color: #e74c3c;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -401,7 +401,7 @@
 }
 
 .total-price-amount {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: bold;
   color: #8bc34a;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -532,12 +532,12 @@
 
 .buy-now-btn {
   flex: 2;
-  padding: 1rem 2rem;
+  padding: 0.9rem 1.8rem;
   background: linear-gradient(135deg, #8bc34a, #7cb342);
   color: white;
   border: none;
   border-radius: 8px;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -551,7 +551,7 @@
 
 .add-to-cart-btn {
   flex: 1;
-  padding: 1rem;
+  padding: 0.9rem;
   background: white;
   color: #8bc34a;
   border: 2px solid #8bc34a;
@@ -646,6 +646,31 @@
   background: #7cb342;
 }
 
+/* Combo Product Links */
+.combo-image-link {
+  display: block;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.combo-image-link:hover {
+  transform: scale(1.05);
+}
+
+.combo-name-link {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+.combo-name-link:hover {
+  color: #8bc34a;
+}
+
+.combo-name-link:hover .combo-name {
+  color: #8bc34a;
+}
+
 /* Info Boxes */
 .info-boxes {
   display: flex;
@@ -671,88 +696,6 @@
   font-size: 1.1rem;
 }
 
-/* Related Products */
-.related-products-section {
-  margin-top: 4rem;
-}
-
-.related-products-section h2 {
-  font-size: 1.5rem;
-  color: #333;
-  margin-bottom: 2rem;
-  text-align: center;
-}
-
-.related-products-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-}
-
-.related-product-card {
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.related-product-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-}
-
-.related-product-image {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.related-product-info {
-  padding: 1rem;
-  text-align: center;
-}
-
-.related-product-info h4 {
-  font-size: 1rem;
-  color: #333;
-  margin: 0 0 0.5rem 0;
-  font-weight: 600;
-}
-
-.related-product-price {
-  font-size: 1rem;
-  color: #8bc34a;
-  font-weight: 500;
-  margin-bottom: 0.5rem;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  line-height: 1.2;
-}
-
-.related-product-discount {
-  font-size: 0.8rem;
-  color: #e74c3c;
-  text-decoration: line-through;
-  margin-bottom: 1rem;
-}
-
-.related-buy-btn {
-  width: 100%;
-  padding: 0.8rem;
-  background: #8bc34a;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.related-buy-btn:hover {
-  background: #7cb342;
-}
-
 /* Loading & Error States */
 .loading,
 .error {
@@ -769,6 +712,13 @@
 /* Responsive Design */
 @media (max-width: 1024px) {
   .product-detail-container {
+    grid-template-columns: 60% 40%;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-detail-container {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
@@ -780,19 +730,17 @@
   .product-info-section {
     order: 2;
   }
-}
 
-@media (max-width: 768px) {
   .product-title {
     font-size: 1.5rem;
   }
 
   .current-price {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 
   .total-price-amount {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 
   .price-info {
@@ -817,11 +765,6 @@
   .combo-item {
     flex-direction: column;
     text-align: center;
-  }
-
-  .related-products-grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
   }
 
   .thumbnail-gallery {
@@ -887,11 +830,11 @@
   }
 
   .current-price {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
   }
 
   .total-price-amount {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
   }
 
   .price-label {
@@ -902,9 +845,5 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
-  }
-
-  .related-products-grid {
-    grid-template-columns: 1fr;
   }
 }
