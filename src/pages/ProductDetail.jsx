@@ -205,19 +205,14 @@ export default function ProductDetail() {
              <div className="product-information">
                <h3>Product Information</h3>
                
-               <div className="info-section">
-                 <h4>Origin</h4>
-                 <p>Grown and harvested at certified organic farms, ensuring quality and food safety. Products are strictly controlled from planting to reaching consumers.</p>
-               </div>
+                               <div className="info-section">
+                  <h4>Origin</h4>
+                  <p>{product.origin}</p>
+                </div>
 
                <div className="info-section">
-                 <h4>Introduction</h4>
-                 <p>{product.description}</p>
-               </div>
-
-               <div className="info-section">
-                 <h4>Product Description</h4>
-                 <p>Products are carefully selected to ensure the highest freshness and quality. The production process complies with international standards for food safety and environmental protection.</p>
+                 <h4>Description</h4>
+                 <p>{product.descriptionDetail}</p>
                </div>
 
                <div className="info-section">
