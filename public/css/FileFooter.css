@@ -16,6 +16,176 @@ body {
   font-family: "Open Sans", sans-serif;
   line-height: 1.6;
   color: #333;
+  overflow-y: scroll;
+}
+
+/* Prevent layout shift when modal opens/closes */
+.modal-open {
+  overflow: hidden !important;
+  padding-right: 0 !important;
+}
+
+/* Force scrollbar to always be visible to prevent layout shift */
+html {
+  overflow-y: scroll;
+}
+
+/* Custom Modal Styles */
+.custom-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050;
+  animation: fadeIn 0.3s ease;
+  /* Prevent any scroll interference */
+  overflow: hidden;
+  pointer-events: auto;
+}
+
+.custom-modal {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  max-width: 500px;
+  width: 90%;
+  max-height: 90vh;
+  overflow: hidden;
+  animation: slideIn 0.3s ease;
+}
+
+.custom-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 25px;
+  border-bottom: 1px solid #eee;
+}
+
+.custom-modal-header h3 {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  color: #333;
+}
+
+.custom-modal-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.custom-modal-close:hover {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.custom-modal-body {
+  padding: 25px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #666;
+}
+
+.success-message {
+  text-align: center;
+}
+
+.success-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #8cc63f, #72a334);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0 auto 20px;
+  box-shadow: 0 4px 15px rgba(140, 198, 63, 0.3);
+}
+
+.success-message h4 {
+  color: #333;
+  font-family: "Playfair Display", serif;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.success-message p {
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.success-message ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  text-align: left;
+}
+
+.success-message ul li {
+  padding: 8px 0;
+  color: #666;
+  font-size: 14px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.success-message ul li:last-child {
+  border-bottom: none;
+}
+
+.success-message .note {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 4px solid #8cc63f;
+  font-style: italic;
+  color: #555;
+  margin-top: 20px;
+}
+
+.custom-modal-footer {
+  padding: 20px 25px;
+  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .newsletter-section {
@@ -59,6 +229,8 @@ body {
   align-items: center;
   flex-grow: 1;
   max-width: 500px;
+  /* Prevent form submission behavior */
+  position: relative;
 }
 
 .footer-form input[type="email"] {
@@ -257,5 +429,23 @@ body {
   }
   .footer-col h3 {
     font-size: 16px;
+  }
+
+  /* Modal responsive */
+  .custom-modal {
+    width: 95%;
+    margin: 20px;
+  }
+
+  .custom-modal-header h3 {
+    font-size: 18px;
+  }
+
+  .success-message h4 {
+    font-size: 18px;
+  }
+
+  .success-message ul li {
+    font-size: 13px;
   }
 }

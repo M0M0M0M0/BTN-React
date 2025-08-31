@@ -1,7 +1,62 @@
 import { Link } from 'react-router-dom'
+import { useState, useEffect, useRef } from 'react'
 // page-level CSS is linked globally via index.html
 
 export default function Header() {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
+  const [showResults, setShowResults] = useState(false);
+  const [products, setProducts] = useState([]);
+  const searchRef = useRef(null);
+
+  // Load products from JSON file
+  useEffect(() => {
+    fetch('/json/products.json')
+      .then(response => response.json())
+      .then(data => setProducts(data.products))
+      .catch(error => console.error('Error loading products:', error));
+  }, []);
+
+  // Handle search input
+  const handleSearch = (e) => {
+    const term = e.target.value;
+    setSearchTerm(term);
+    
+    if (term.length >= 2) {
+      const filtered = products.filter(product => 
+        product.name.toLowerCase().includes(term.toLowerCase()) ||
+        product.category.toLowerCase().includes(term.toLowerCase()) ||
+        product.description.toLowerCase().includes(term.toLowerCase())
+      );
+      setSearchResults(filtered.slice(0, 5)); // Limit to 5 results
+      setShowResults(true);
+    } else {
+      setSearchResults([]);
+      setShowResults(false);
+    }
+  };
+
+  // Handle search result click
+  const handleResultClick = (product) => {
+    setSearchTerm(product.name);
+    setShowResults(false);
+    // Navigate to product page or add to cart
+    console.log('Selected product:', product);
+  };
+
+  // Close search results when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (searchRef.current && !searchRef.current.contains(event.target)) {
+        setShowResults(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
   return (
     <header>
       <nav className="navbar navbar-expand-lg navbar-light py-3 position-relative">
