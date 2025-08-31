@@ -235,7 +235,7 @@ export default function Header() {
                 </div>
               )}
               <a href="#" className="cart-link position-relative">
-                <i className="fas fa-shopping-cart" style={{ fontSize: '1.5rem', color: '#2c3e50' }}></i>
+                <i className="fas fa-shopping-cart" style={{ fontSize: '1.5rem', color: 'rgb(222, 223, 224)' }}></i>
                 <span className="cart-badge position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">3</span>
               </a>
             </div>

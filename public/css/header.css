@@ -231,7 +231,7 @@ header.scrolled {
   transform: scale(1.1) !important;
 }
 .cart-link img {
-  filter: brightness(0) invert(1) !important;
+  filter: brightness(10) invert(1) !important;
   transition: filter 0.3s ease !important;
 }
 .cart-link:hover img {
