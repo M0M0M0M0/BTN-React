@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useEffect as usePageEffect } from 'react'
+import { Link } from 'react-router-dom'
 // Attach page-scoped CSS dynamically
 function usePageStyles(hrefs) {
   usePageEffect(() => {
@@ -62,9 +63,13 @@ export default function Products() {
               {filtered.map(p => (
                 <div key={p.id} className="product-card">
                   {p.discount && p.discount > 0 ? <div className="discount-badge">-{p.discount}%</div> : null}
-                  <img src={`/images/organic-img/${p.name.toLowerCase().replace(/\s+/g,'-')}.jpg`} alt={p.name} />
+                  <Link to={`/product/${p.id}`} className="product-image-link">
+                    <img src={`/images/organic-img/${p.name.toLowerCase().replace(/\s+/g,'-')}.jpg`} alt={p.name} />
+                  </Link>
                   <div className="product-info">
-                    <h4>{p.name}</h4>
+                    <Link to={`/product/${p.id}`} className="product-title-link">
+                      <h4>{p.name}</h4>
+                    </Link>
                     <p className="product-description">{p.description}</p>
                     <div className="product-price">
                       {p.discount && p.discount > 0 && p.originalPrice ? (
@@ -77,9 +82,9 @@ export default function Products() {
                       )}
                       <span className="product-quantity">/ {p.quantity}</span>
                     </div>
-                    <button className="add-to-cart-btn">
+                    <Link to={`/product/${p.id}`} className="add-to-cart-btn">
                       <i className="fas fa-shopping-cart"></i> Add to Cart
-                    </button>
+                    </Link>
                   </div>
                 </div>
               ))}

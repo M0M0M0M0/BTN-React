@@ -119,6 +119,21 @@
   transition: transform 0.3s ease;
 }
 
+.product-image-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.product-title-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.product-title-link:hover {
+  color: #8bc34a;
+}
+
 .product-card:hover img {
   transform: scale(1.05);
 }
@@ -204,6 +219,11 @@
   transition: all 0.3s ease;
   width: 100%;
   font-size: 0.9rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 .add-to-cart-btn:hover {
