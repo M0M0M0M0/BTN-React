@@ -176,6 +176,13 @@ header.scrolled {
 /* Search */
 .search-container {
   position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  flex-shrink: 0 !important;
+  width: auto !important;
+  max-width: 350px !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
 }
 .search-container .form-control {
   border: 2px solid rgba(255, 255, 255, 0.3) !important;
@@ -206,6 +213,8 @@ header.scrolled {
   align-items: center !important;
   justify-content: center !important;
   transition: all 0.3s ease !important;
+  flex-shrink: 0 !important;
+  z-index: 10 !important;
 }
 .search-container .btn:hover {
   background: linear-gradient(135deg, #689f38, #7cb342) !important;
@@ -300,4 +309,201 @@ html {
 }
 .search-cart-container {
   transform: translateY(10%) !important;
+  position: relative !important;
+  z-index: 1000 !important;
+  flex-shrink: 0 !important;
+  width: auto !important;
+}
+
+/* Ensure dropdown positioning relative to search area */
+.search-cart-container .d-flex {
+  position: relative !important;
+}
+
+/* Search Results Dropdown */
+.search-results-dropdown {
+  position: absolute !important;
+  top: 100% !important;
+  left: 0 !important;
+  background: white !important;
+  border: 1px solid #ddd !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  z-index: 9999 !important;
+  max-height: 400px !important;
+  overflow-y: auto !important;
+  margin-top: 5px !important;
+  width: 350px !important;
+  min-width: 300px !important;
+  max-width: 400px !important;
+  display: block !important;
+}
+
+.search-result-item {
+  display: flex !important;
+  align-items: center !important;
+  padding: 12px 15px !important;
+  border-bottom: 1px solid #f0f0f0 !important;
+  cursor: pointer !important;
+  transition: background-color 0.2s ease !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.search-result-item:last-child {
+  border-bottom: none !important;
+}
+
+.search-result-item:hover {
+  background-color: #f8f9fa !important;
+}
+
+.search-result-image {
+  width: 50px !important;
+  height: 50px !important;
+  margin-right: 12px !important;
+  flex-shrink: 0 !important;
+}
+
+.search-result-image img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  border-radius: 6px !important;
+  background-color: #f8f9fa !important;
+}
+
+.search-result-image img:not([src]),
+.search-result-image img[src=""],
+.search-result-image img[src*="error"] {
+  background: linear-gradient(135deg, #e9ecef, #dee2e6) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 12px !important;
+  color: #6c757d !important;
+}
+
+.search-result-info {
+  flex: 1 !important;
+  min-width: 0 !important;
+}
+
+.search-result-name {
+  font-weight: 600 !important;
+  color: #333 !important;
+  font-size: 14px !important;
+  margin-bottom: 4px !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+.search-result-category {
+  color: #666 !important;
+  font-size: 12px !important;
+  text-transform: capitalize !important;
+  margin-bottom: 2px !important;
+}
+
+.search-result-price {
+  color: #8cc63f !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+}
+
+.no-results {
+  padding: 20px !important;
+  text-align: center !important;
+  color: #666 !important;
+  font-style: italic !important;
+}
+
+/* Search container adjustments */
+.search-container {
+  position: relative !important;
+  overflow: visible !important;
+  flex-wrap: nowrap !important;
+}
+
+.search-container .form-control {
+  min-width: 250px !important;
+  flex-shrink: 0 !important;
+  width: 250px !important;
+}
+
+/* Ensure header doesn't expand when dropdown is shown */
+.navbar {
+  overflow: visible !important;
+  width: 100% !important;
+}
+
+.container-fluid {
+  overflow: visible !important;
+  width: 100% !important;
+}
+
+/* Prevent flex items from expanding */
+.navbar .d-flex {
+  flex-shrink: 0 !important;
+}
+
+.navbar .ms-auto {
+  flex-shrink: 0 !important;
+}
+
+/* Ensure search container maintains its size */
+.search-container {
+  flex: 0 0 auto !important;
+}
+
+/* Ensure dropdown doesn't affect parent layout */
+.search-results-dropdown {
+  position: absolute !important;
+  top: 100% !important;
+  left: 0 !important;
+  right: auto !important;
+  bottom: auto !important;
+  transform: translateY(5px) !important;
+}
+
+/* Responsive adjustments for search */
+@media (max-width: 768px) {
+  .search-container .form-control {
+    min-width: 200px !important;
+  }
+
+  .search-results-dropdown {
+    max-height: 300px !important;
+    width: 280px !important;
+    min-width: 250px !important;
+    left: 0 !important;
+    right: auto !important;
+  }
+
+  .search-result-item {
+    padding: 10px 12px !important;
+  }
+
+  .search-result-image {
+    width: 40px !important;
+    height: 40px !important;
+    margin-right: 10px !important;
+  }
+
+  .search-result-name {
+    font-size: 13px !important;
+  }
+
+  .search-result-category,
+  .search-result-price {
+    font-size: 11px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .search-results-dropdown {
+    min-width: 200px !important;
+    max-width: calc(100vw - 40px) !important;
+  }
 }

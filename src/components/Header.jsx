@@ -36,6 +36,20 @@ export default function Header() {
     }
   };
 
+  // Handle Enter key press
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      if (searchResults.length > 0) {
+        handleResultClick(searchResults[0]); // Select first result
+      } else if (searchTerm.length >= 2) {
+        // Perform search action
+        console.log('Searching for:', searchTerm);
+        setShowResults(false);
+      }
+    }
+  };
+
   // Handle search result click
   const handleResultClick = (product) => {
     setSearchTerm(product.name);
@@ -137,13 +151,84 @@ export default function Header() {
           </div>
 
           <div className="d-flex flex-column align-items-end ms-auto search-cart-container">
-            <div className="d-flex align-items-center">
+            <div className="d-flex align-items-center position-relative" ref={searchRef}>
               <div className="search-container d-flex me-3">
-                <input className="form-control" type="search" placeholder="Search products..." aria-label="Search" />
-                <button className="btn" type="submit">
+                <input 
+                  className="form-control" 
+                  type="search" 
+                  placeholder="Search products..." 
+                  aria-label="Search"
+                  value={searchTerm}
+                  onChange={handleSearch}
+                  onKeyPress={handleKeyPress}
+                />
+                <button 
+                  className="btn" 
+                  type="button"
+                  onClick={() => {
+                    if (searchResults.length > 0) {
+                      handleResultClick(searchResults[0]);
+                    } else if (searchTerm.length >= 2) {
+                      console.log('Searching for:', searchTerm);
+                      setShowResults(false);
+                    }
+                  }}
+                >
                   <i className="fas fa-search"></i>
                 </button>
               </div>
+              
+              {/* Search Results Dropdown - Tách riêng khỏi search container */}
+              {showResults && searchResults.length > 0 && (
+                <div className="search-results-dropdown">
+                  {searchResults.map((product) => (
+                    <div 
+                      key={product.id} 
+                      className="search-result-item"
+                      onClick={() => handleResultClick(product)}
+                    >
+                           <div className="search-result-image">
+                          <img 
+                            src={`/images/organic-img/${product.name.toLowerCase().replace(/\s+/g,'-')}.jpg`} 
+                            alt={product.name}
+                            onError={(e) => {
+                              e.target.style.display = 'none';
+                              e.target.nextSibling.style.display = 'flex';
+                            }}
+                          />
+                          <div 
+                            className="image-placeholder"
+                            style={{
+                              display: 'none',
+                              width: '100%',
+                              height: '100%',
+                              backgroundColor: '#f8f9fa',
+                              borderRadius: '6px',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              fontSize: '12px',
+                              color: '#6c757d'
+                            }}
+                          >
+                            {product.name.charAt(0).toUpperCase()}
+                          </div>
+                        </div>
+                      <div className="search-result-info">
+                        <div className="search-result-name">{product.name}</div>
+                        <div className="search-result-category">{product.category}</div>
+                        <div className="search-result-price">{product.price} / {product.quantity}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+              
+              {/* No Results Message - Tách riêng khỏi search container */}
+              {showResults && searchResults.length === 0 && searchTerm.length >= 2 && (
+                <div className="search-results-dropdown">
+                  <div className="no-results">No products found</div>
+                </div>
+              )}
               <a href="#" className="cart-link position-relative">
                 <i className="fas fa-shopping-cart" style={{ fontSize: '1.5rem', color: '#2c3e50' }}></i>
                 <span className="cart-badge position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">3</span>

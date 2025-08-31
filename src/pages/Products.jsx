@@ -61,14 +61,21 @@ export default function Products() {
             <div id="productGrid" className="product-grid">
               {filtered.map(p => (
                 <div key={p.id} className="product-card">
-                  {p.discount ? <div className="discount-badge">-{p.discount}%</div> : null}
+                  {p.discount && p.discount > 0 ? <div className="discount-badge">-{p.discount}%</div> : null}
                   <img src={`/images/organic-img/${p.name.toLowerCase().replace(/\s+/g,'-')}.jpg`} alt={p.name} />
                   <div className="product-info">
                     <h4>{p.name}</h4>
                     <p className="product-description">{p.description}</p>
                     <div className="product-price">
-                      {p.originalPrice ? <span className="original-price">{p.originalPrice}</span> : null}
-                      <span className="current-price">{p.price}</span>
+                      {p.discount && p.discount > 0 && p.originalPrice ? (
+                        <>
+                          <span className="original-price">{p.originalPrice}</span>
+                          <span className="current-price">{p.price}</span>
+                        </>
+                      ) : (
+                        <span className="current-price">{p.price}</span>
+                      )}
+                      <span className="product-quantity">/ {p.quantity}</span>
                     </div>
                     <button className="add-to-cart-btn">
                       <i className="fas fa-shopping-cart"></i> Add to Cart
