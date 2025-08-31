@@ -1,52 +1,89 @@
-import { useEffect, useMemo, useState } from 'react'
-import { useEffect as usePageEffect } from 'react'
-import { Link, useSearchParams } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import LoadingSpinner from '../components/LoadingSpinner'
+
 // Attach page-scoped CSS dynamically
 function usePageStyles(hrefs) {
-  usePageEffect(() => {
+  const [stylesLoaded, setStylesLoaded] = useState(false)
+  
+  useEffect(() => {
     const links = hrefs.map(href => {
       const el = document.createElement('link')
       el.rel = 'stylesheet'
       el.href = href
+      
+      // Add load event listener to track when CSS is loaded
+      el.onload = () => {
+        // Check if all stylesheets are loaded
+        const allLinks = document.querySelectorAll('link[rel="stylesheet"]')
+        const loadedLinks = Array.from(allLinks).filter(link => link.sheet !== null)
+        if (loadedLinks.length >= hrefs.length) {
+          // Add a small delay to ensure CSS is fully applied
+          setTimeout(() => setStylesLoaded(true), 100)
+        }
+      }
+      
       document.head.appendChild(el)
       return el
     })
-    return () => { links.forEach(el => document.head.removeChild(el)) }
+    
+    // Fallback: if onload doesn't fire, set loaded after a reasonable timeout
+    const fallbackTimer = setTimeout(() => setStylesLoaded(true), 500)
+    
+    return () => { 
+      links.forEach(el => document.head.removeChild(el))
+      clearTimeout(fallbackTimer)
+    }
   }, [hrefs.join('|')])
+  
+  return stylesLoaded
 }
 
 const CATEGORIES = ['all','fruits','vegetables','juice','dairy','processed-food','skin-care']
 
 export default function Products() {
-  usePageStyles(['/css/layout.css', '/css/product-list.css'])
-  const [searchParams, setSearchParams] = useSearchParams()
+  const stylesLoaded = usePageStyles(['/css/layout.css', '/css/product-list.css'])
   const [products, setProducts] = useState([])
+  const [searchTerm, setSearchTerm] = useState('')
   const [category, setCategory] = useState('all')
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    fetch('/json/products.json')
-      .then(r => r.json())
-      .then(data => setProducts(data.products || []))
-      .finally(() => setLoading(false))
-  }, [])
+  const [searchParams, setSearchParams] = useSearchParams()
 
   // Read category from URL parameters
   useEffect(() => {
     const categoryFromUrl = searchParams.get('category')
-    if (categoryFromUrl && CATEGORIES.includes(categoryFromUrl)) {
+    if (categoryFromUrl) {
       setCategory(categoryFromUrl)
     }
   }, [searchParams])
-
-  const filtered = useMemo(() => {
-    return products.filter(p => category === 'all' ? true : p.category === category)
-  }, [products, category])
 
   // Update URL when category changes
   const handleCategoryChange = (newCategory) => {
     setCategory(newCategory)
     setSearchParams({ category: newCategory })
+  }
+
+  useEffect(() => {
+    fetch('/json/products.json')
+      .then(response => response.json())
+      .then(data => {
+        // Handle both array and object with products property
+        const productsArray = Array.isArray(data) ? data : (data.products || [])
+        setProducts(productsArray)
+      })
+      .catch(error => console.error('Error loading products:', error))
+  }, [])
+
+  const filteredProducts = products.filter(product => {
+    const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         product.description.toLowerCase().includes(searchTerm.toLowerCase())
+    const matchesCategory = category === 'all' || product.category === category
+    return matchesSearch && matchesCategory
+  })
+
+  // Loading screen while CSS is being loaded
+  if (!stylesLoaded) {
+    return <LoadingSpinner message="Loading Products..." />
   }
 
   return (
@@ -67,15 +104,8 @@ export default function Products() {
             ))}
           </div>
 
-          {loading && (
-            <div id="loading" className="loading">
-              Loading products...
-            </div>
-          )}
-
-          {!loading && (
-            <div id="productGrid" className="product-grid">
-              {filtered.map(p => (
+          <div id="productGrid" className="product-grid">
+            {filteredProducts.map(p => (
                 <div key={p.id} className="product-card">
                   {p.discount && p.discount > 0 ? <div className="discount-badge">-{p.discount}%</div> : null}
                   <Link to={`/product/${p.id}`} className="product-image-link">
@@ -102,9 +132,8 @@ export default function Products() {
                     </Link>
                   </div>
                 </div>
-              ))}
-            </div>
-          )}
+            ))}
+          </div>
         </div>
       </section>
     </main>

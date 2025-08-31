@@ -1,18 +1,42 @@
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
+import LoadingSpinner from '../components/LoadingSpinner'
 
 // Attach page-scoped CSS dynamically
 function usePageStyles(hrefs) {
+  const [stylesLoaded, setStylesLoaded] = useState(false)
+  
   useEffect(() => {
     const links = hrefs.map(href => {
       const el = document.createElement('link')
       el.rel = 'stylesheet'
       el.href = href
+      
+      // Add load event listener to track when CSS is loaded
+      el.onload = () => {
+        // Check if all stylesheets are loaded
+        const allLinks = document.querySelectorAll('link[rel="stylesheet"]')
+        const loadedLinks = Array.from(allLinks).filter(link => link.sheet !== null)
+        if (loadedLinks.length >= hrefs.length) {
+          // Add a small delay to ensure CSS is fully applied
+          setTimeout(() => setStylesLoaded(true), 100)
+        }
+      }
+      
       document.head.appendChild(el)
       return el
     })
-    return () => { links.forEach(el => document.head.removeChild(el)) }
+    
+    // Fallback: if onload doesn't fire, set loaded after a reasonable timeout
+    const fallbackTimer = setTimeout(() => setStylesLoaded(true), 500)
+    
+    return () => { 
+      links.forEach(el => document.head.removeChild(el))
+      clearTimeout(fallbackTimer)
+    }
   }, [hrefs.join('|')])
+  
+  return stylesLoaded
 }
 
 function useCountdown(msFromNow) {
@@ -38,7 +62,7 @@ function useCountdown(msFromNow) {
 }
 
 export default function Offers() {
-  usePageStyles(['/css/offers.css'])
+  const stylesLoaded = usePageStyles(['/css/offers.css'])
   const [searchParams, setSearchParams] = useSearchParams()
   const [selectedCategory, setSelectedCategory] = useState('all')
   const t = useCountdown((3*24*60*60 + 12*60*60) * 1000)
@@ -55,6 +79,11 @@ export default function Offers() {
   const handleCategoryChange = (newCategory) => {
     setSelectedCategory(newCategory)
     setSearchParams({ category: newCategory })
+  }
+
+  // Loading screen while CSS is being loaded
+  if (!stylesLoaded) {
+    return <LoadingSpinner message="Loading Offers..." />
   }
 
   return (

@@ -1,29 +1,53 @@
 import { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { useEffect as usePageEffect } from 'react'
+import LoadingSpinner from '../components/LoadingSpinner'
 
 // Attach page-scoped CSS dynamically
 function usePageStyles(hrefs) {
-  usePageEffect(() => {
+  const [stylesLoaded, setStylesLoaded] = useState(false)
+  
+  useEffect(() => {
     const links = hrefs.map(href => {
       const el = document.createElement('link')
       el.rel = 'stylesheet'
       el.href = href
+      
+      // Add load event listener to track when CSS is loaded
+      el.onload = () => {
+        // Check if all stylesheets are loaded
+        const allLinks = document.querySelectorAll('link[rel="stylesheet"]')
+        const loadedLinks = Array.from(allLinks).filter(link => link.sheet !== null)
+        if (loadedLinks.length >= hrefs.length) {
+          // Add a small delay to ensure CSS is fully applied
+          setTimeout(() => setStylesLoaded(true), 100)
+        }
+      }
+      
       document.head.appendChild(el)
       return el
     })
-    return () => { links.forEach(el => document.head.removeChild(el)) }
+    
+    // Fallback: if onload doesn't fire, set loaded after a reasonable timeout
+    const fallbackTimer = setTimeout(() => setStylesLoaded(true), 500)
+    
+    return () => { 
+      links.forEach(el => document.head.removeChild(el))
+      clearTimeout(fallbackTimer)
+    }
   }, [hrefs.join('|')])
+  
+  return stylesLoaded
 }
 
 export default function ProductDetail() {
-  usePageStyles(['/css/layout.css', '/css/product-detail.css'])
+  const stylesLoaded = usePageStyles(['/css/layout.css', '/css/product-detail.css'])
   const { id } = useParams()
   const [product, setProduct] = useState(null)
   const [loading, setLoading] = useState(true)
   const [selectedImage, setSelectedImage] = useState(0)
   const [quantity, setQuantity] = useState(1)
   const [otherProducts, setOtherProducts] = useState([])
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
 
   useEffect(() => {
@@ -88,25 +112,29 @@ export default function ProductDetail() {
     return `$${formatted}`
   }
 
-
-
-  if (loading) {
-    return (
-      <main className="section main">
-        <div className="container">
-          <div className="loading">Loading product details...</div>
-        </div>
-      </main>
-    )
+  // Loading screen while CSS is being loaded
+  if (!stylesLoaded) {
+    return <LoadingSpinner message="Loading Product..." />
   }
 
   if (!product) {
     return (
-      <main className="section main">
-        <div className="container">
-          <div className="error">Product not found</div>
+      <div style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '100vh',
+        background: 'linear-gradient(135deg, #2d5016 0%, #7fb069 100%)',
+        color: 'white',
+        fontFamily: 'Playfair Display, serif'
+      }}>
+        <div style={{ textAlign: 'center' }}>
+          <h2>Product not found</h2>
+          <Link to="/products" style={{ color: 'white', textDecoration: 'underline' }}>
+            Back to Products
+          </Link>
         </div>
-      </main>
+      </div>
     )
   }
 
