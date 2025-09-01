@@ -99,10 +99,10 @@ export default function ProductDetail() {
 
   // Generate multiple images for the product (simulating image gallery)
   const productImages = [
-    `/images/organic-img/${product.name.toLowerCase().replace(/\s+/g,'-')}.jpg`,
-    `/images/organic-img/${product.name.toLowerCase().replace(/\s+/g,'-')}-2.jpg`,
-    `/images/organic-img/${product.name.toLowerCase().replace(/\s+/g,'-')}-3.jpg`,
-    `/images/organic-img/${product.name.toLowerCase().replace(/\s+/g,'-')}-4.jpg`
+    `./images/organic-img/${product.name.toLowerCase().replace(/\s+/g,'-')}.jpg`,
+    `./images/organic-img/${product.name.toLowerCase().replace(/\s+/g,'-')}-2.jpg`,
+    `./images/organic-img/${product.name.toLowerCase().replace(/\s+/g,'-')}-3.jpg`,
+    `./images/organic-img/${product.name.toLowerCase().replace(/\s+/g,'-')}-4.jpg`
   ]
 
   return (
@@ -348,7 +348,7 @@ export default function ProductDetail() {
                   <div key={otherProduct.id} className="combo-item">
                     <Link to={`/product/${otherProduct.id}`} className="combo-image-link">
                       <img 
-                        src={`/images/organic-img/${otherProduct.name.toLowerCase().replace(/\s+/g,'-')}.jpg`}
+                        src={`./images/organic-img/${otherProduct.name.toLowerCase().replace(/\s+/g,'-')}.jpg`}
                         alt={otherProduct.name}
                         className="combo-image"
                       />

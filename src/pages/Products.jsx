@@ -68,7 +68,7 @@ export default function Products() {
                 <div key={p.id} className="product-card">
                   {p.discount && p.discount > 0 ? <div className="discount-badge">-{p.discount}%</div> : null}
                   <Link to={`/product/${p.id}`} className="product-image-link">
-                    <img src={`/images/organic-img/${p.name.toLowerCase().replace(/\s+/g,'-')}.jpg`} alt={p.name} />
+                    <img src={`./images/organic-img/${p.name.toLowerCase().replace(/\s+/g,'-')}.jpg`} alt={p.name} />
                   </Link>
                   <div className="product-info">
                     <Link to={`/product/${p.id}`} className="product-title-link">
