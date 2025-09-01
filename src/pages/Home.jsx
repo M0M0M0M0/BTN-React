@@ -76,37 +76,37 @@ export default function Home() {
         <div className="product-grid container">
           <div className="product-card">
             <div className="heart">♥</div>
-            <img src="/images/anhrauma.jpg" alt="Gotu Kola" />
+            <img src="./images/anhrauma.jpg" alt="Gotu Kola" />
             <h4>Gotu Kola</h4>
             <p>36.000Đ</p>
           </div>
           <div className="product-card">
             <div className="heart">♥</div>
-            <img src="/images/anhbapcai.jpg" alt="Cabbage" />
+            <img src="./images/anhbapcai.jpg" alt="Cabbage" />
             <h4>Cabbage</h4>
             <p>15.000Đ</p>
           </div>
           <div className="product-card">
             <div className="heart">♥</div>
-            <img src="/images/anhkhoailang.jpg" alt="Sweet Potato" />
+            <img src="./images/anhkhoailang.jpg" alt="Sweet Potato" />
             <h4>Sweet Potato</h4>
             <p>20.000Đ</p>
           </div>
           <div className="product-card">
             <div className="heart">♥</div>
-            <img src="/images/anhcafe.jpg" alt="Coffee" />
+            <img src="./images/anhcafe.jpg" alt="Coffee" />
             <h4>Coffee</h4>
             <p>15.000Đ</p>
           </div>
           <div className="product-card">
             <div className="heart">♥</div>
-            <img src="/images/anhchanleo.jpg" alt="Passion Fruit" />
+            <img src="./images/anhchanleo.jpg" alt="Passion Fruit" />
             <h4>Passion Fruit</h4>
             <p>35.000Đ</p>
           </div>
           <div className="product-card">
             <div className="heart">♥</div>
-            <img src="/images/anhduahau.jpg" alt="Watermelon" />
+            <img src="./images/anhduahau.jpg" alt="Watermelon" />
             <h4>Wartermelon</h4>
             <p>45.000Đ</p>
           </div>
@@ -147,7 +147,7 @@ export default function Home() {
                 <p>Minimize water costs and efficiently distribute water, help farmers see improvements in yields</p>
                 <a href="#"><i>Read more</i></a>
               </div>
-              <img src="/img/about_v1_9.jpg" alt="" />
+              <img src="./img/about_v1_9.jpg" alt="" />
             </section>
           </div>
         </div>
@@ -155,7 +155,7 @@ export default function Home() {
         <div className="container">
           <div className="dealoftheday">
             <div className="d-a">
-              <img src="/img/object-04.jpg" alt="Vitamin C Face Wash" />
+              <img src="./img/object-04.jpg" alt="Vitamin C Face Wash" />
               <div className="price-tag">Only<br />15.00$</div>
             </div>
             <div className="d-b">
@@ -175,7 +175,7 @@ export default function Home() {
       <div className="transition-section1"></div>
       <section className="testimonial">
         <div className="avatar">
-          <img src="/images/lamtruong.jpg" />
+          <img src="./images/lamtruong.jpg" />
         </div>
         <h2>THE BEST ORGANIC STORE!</h2>
         <p className="quote">
@@ -189,21 +189,21 @@ export default function Home() {
       <section className="blog-section">
         <div className="blog-container">
           <div className="blog-post">
-            <img src="/images/a1.jpg" />
+            <img src="./images/a1.jpg" />
             <p className="date">17 Tháng 07, 2025</p>
             <h3>Tại sao bạn nên ăn bơ</h3>
             <p className="desc">Ai cũng biết tôi thích ăn. Món yêu thích nhất của tôi? Bơ. Tôi phát cuồng vì chúng!</p>
             <a href="#">/ XEM THÊM</a>
           </div>
           <div className="blog-post">
-            <img src="/images/a2.jpg" />
+            <img src="./images/a2.jpg" />
             <p className="date">17 Tháng 07, 2025</p>
             <h3>5 bước để sống khỏe tim mạch</h3>
             <p className="desc">Chế độ ăn hợp lý giúp giảm nguy cơ bệnh tim bằng cách giảm cholesterol, huyết áp,...</p>
             <a href="#">/ XEM THÊM</a>
           </div>
           <div className="blog-post">
-            <img src="/images/a3.jpg" />
+            <img src="./images/a3.jpg" />
             <p className="date">17 Tháng 07, 2025</p>
             <h3>Thức ăn hữu cơ cho trẻ</h3>
             <p className="desc">Chọn thịt và sữa hữu cơ giúp con bạn tránh tiếp xúc hóa chất gây hại.</p>

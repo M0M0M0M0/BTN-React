@@ -52,7 +52,7 @@ export default function ProductDetail() {
 
   useEffect(() => {
     // Fetch product data
-    fetch('/json/products.json')
+    fetch('./json/products.json')
       .then(r => r.json())
       .then(data => {
         const foundProduct = data.products.find(p => p.id === parseInt(id))

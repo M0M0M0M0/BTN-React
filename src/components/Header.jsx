@@ -15,7 +15,7 @@ export default function Header() {
 
   // Load products from JSON file
   useEffect(() => {
-    fetch('/json/products.json')
+    fetch('./json/products.json')
       .then(response => response.json())
       .then(data => setProducts(data.products))
       .catch(error => console.error('Error loading products:', error));
@@ -96,7 +96,7 @@ export default function Header() {
       <nav className="navbar navbar-expand-lg navbar-light py-3 position-relative">
         <div className="container-fluid">
           <RippleLink className="navbar-brand" to="/">
-            <img src="/img/logo/logo.png" alt="Logo" height="50" />
+            <img src="./img/logo/logo.png" alt="Logo" height="50" />
           </RippleLink>
 
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">

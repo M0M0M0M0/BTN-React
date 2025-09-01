@@ -164,7 +164,7 @@ export default function Offers() {
                 </div>
               </div>
               <div className="col-md-4 text-end">
-                <img src="/images/organic-img/green-grapes.jpg" alt="Fruit Box" style={{ borderRadius: 15, maxWidth: '100%' }} />
+                <img src="./images/organic-img/green-grapes.jpg" alt="Fruit Box" style={{ borderRadius: 15, maxWidth: '100%' }} />
               </div>
             </div>
           </div>
@@ -174,7 +174,7 @@ export default function Offers() {
             <div className="offer-card" data-category="weekly">
               <div className="offer-badge">-25% OFF</div>
               <div className="offer-image">
-                <img src="/images/organic-img/asparagus.jpg" alt="Fresh Vegetables" />
+                <img src="./images/organic-img/asparagus.jpg" alt="Fresh Vegetables" />
               </div>
               <div className="offer-content">
                 <h3 className="offer-title">Fresh Vegetable Bundle</h3>
@@ -194,7 +194,7 @@ export default function Offers() {
             <div className="offer-card" data-category="weekly">
               <div className="offer-badge">-30% OFF</div>
               <div className="offer-image">
-                <img src="/images/organic-img/organic-broccoli.jpg" alt="Organic Broccoli" />
+                <img src="./images/organic-img/organic-broccoli.jpg" alt="Organic Broccoli" />
               </div>
               <div className="offer-content">
                 <h3 className="offer-title">Organic Broccoli Pack</h3>
@@ -214,7 +214,7 @@ export default function Offers() {
             <div className="offer-card" data-category="bogo">
               <div className="offer-badge new">BOGO</div>
               <div className="offer-image">
-                <img src="/images/organic-img/cherries.jpg" alt="Organic Apples" />
+                <img src="./images/organic-img/cherries.jpg" alt="Organic Apples" />
               </div>
               <div className="offer-content">
                 <h3 className="offer-title">Organic Apples</h3>
@@ -234,7 +234,7 @@ export default function Offers() {
             <div className="offer-card" data-category="bogo">
               <div className="offer-badge new">BOGO</div>
               <div className="offer-image">
-                <img src="/images/organic-img/ripe-strawberries.jpg" alt="Fresh Strawberries" />
+                <img src="./images/organic-img/ripe-strawberries.jpg" alt="Fresh Strawberries" />
               </div>
               <div className="offer-content">
                 <h3 className="offer-title">Fresh Strawberries</h3>
@@ -254,7 +254,7 @@ export default function Offers() {
             <div className="offer-card" data-category="bundles">
               <div className="offer-badge limited">LIMITED</div>
               <div className="offer-image">
-                <img src="/images/organic-img/mixed-berry-juice.jpg" alt="Juice Bundle" />
+                <img src="./images/organic-img/mixed-berry-juice.jpg" alt="Juice Bundle" />
               </div>
               <div className="offer-content">
                 <h3 className="offer-title">Organic Juice Pack</h3>
@@ -274,7 +274,7 @@ export default function Offers() {
             <div className="offer-card" data-category="bundles">
               <div className="offer-badge limited">LIMITED</div>
               <div className="offer-image">
-                <img src="/images/organic-img/greek-yogurt.jpg" alt="Dairy Bundle" />
+                <img src="./images/organic-img/greek-yogurt.jpg" alt="Dairy Bundle" />
               </div>
               <div className="offer-content">
                 <h3 className="offer-title">Dairy Essentials Bundle</h3>
@@ -294,7 +294,7 @@ export default function Offers() {
             <div className="offer-card" data-category="clearance">
               <div className="offer-badge">-40% OFF</div>
               <div className="offer-image">
-                <img src="/images/organic-img/dried-mango-slices.jpg" alt="Dried Fruits" />
+                <img src="./images/organic-img/dried-mango-slices.jpg" alt="Dried Fruits" />
               </div>
               <div className="offer-content">
                 <h3 className="offer-title">Organic Dried Fruits</h3>
@@ -314,7 +314,7 @@ export default function Offers() {
             <div className="offer-card" data-category="clearance">
               <div className="offer-badge">-35% OFF</div>
               <div className="offer-image">
-                <img src="/images/organic-img/oatmeal-cookies.jpg" alt="Organic Cookies" />
+                <img src="./images/organic-img/oatmeal-cookies.jpg" alt="Organic Cookies" />
               </div>
               <div className="offer-content">
                 <h3 className="offer-title">Organic Oatmeal Cookies</h3>
@@ -334,7 +334,7 @@ export default function Offers() {
             <div className="offer-card" data-category="seasonal">
               <div className="offer-badge seasonal">SEASONAL</div>
               <div className="offer-image">
-                <img src="/images/organic-img/seasonal-fruits.jpg" alt="Seasonal Fruits" />
+                <img src="./images/organic-img/seasonal-fruits.jpg" alt="Seasonal Fruits" />
               </div>
               <div className="offer-content">
                 <h3 className="offer-title">Seasonal Fruit Collection</h3>
@@ -354,7 +354,7 @@ export default function Offers() {
             <div className="offer-card" data-category="seasonal">
               <div className="offer-badge seasonal">SEASONAL</div>
               <div className="offer-image">
-                <img src="/images/organic-img/green-kale.jpg" alt="Spring Vegetables" />
+                <img src="./images/organic-img/green-kale.jpg" alt="Spring Vegetables" />
               </div>
               <div className="offer-content">
                 <h3 className="offer-title">Spring Vegetable Mix</h3>
@@ -374,7 +374,7 @@ export default function Offers() {
             <div className="offer-card" data-category="gift">
               <div className="offer-badge gift">GIFT</div>
               <div className="offer-image">
-                <img src="/images/organic-img/gift-basket.jpg" alt="Gift Voucher" />
+                <img src="./images/organic-img/gift-basket.jpg" alt="Gift Voucher" />
               </div>
               <div className="offer-content">
                 <h3 className="offer-title">$50 Gift Voucher</h3>
@@ -394,7 +394,7 @@ export default function Offers() {
             <div className="offer-card" data-category="gift">
               <div className="offer-badge gift">GIFT</div>
               <div className="offer-image">
-                <img src="/images/organic-img/coconut-chips.jpg" alt="Gift Basket" />
+                <img src="./images/organic-img/coconut-chips.jpg" alt="Gift Basket" />
               </div>
               <div className="offer-content">
                 <h3 className="offer-title">$100 Gift Voucher</h3>
@@ -424,9 +424,9 @@ export default function Offers() {
               <div className="bundle-card">
                 <h3 className="bundle-title">Family Pack</h3>
                 <div className="bundle-items">
-                  <div className="bundle-item"><img src="/images/organic-img/ripe-strawberries.jpg" alt="Fruits" /><div>5 lbs Fruits</div></div>
-                  <div className="bundle-item"><img src="/images/organic-img/organic-broccoli.jpg" alt="Vegetables" /><div>5 lbs Vegetables</div></div>
-                  <div className="bundle-item"><img src="/images/organic-img/mango-smoothie.jpg" alt="Juice" /><div>4 Juices</div></div>
+                  <div className="bundle-item"><img src="./images/organic-img/ripe-strawberries.jpg" alt="Fruits" /><div>5 lbs Fruits</div></div>
+                  <div className="bundle-item"><img src="./images/organic-img/organic-broccoli.jpg" alt="Vegetables" /><div>5 lbs Vegetables</div></div>
+                  <div className="bundle-item"><img src="./images/organic-img/mango-smoothie.jpg" alt="Juice" /><div>4 Juices</div></div>
                 </div>
                 <div className="bundle-savings">Save $15</div>
                 <div className="bundle-price">$45.99</div>
@@ -437,9 +437,9 @@ export default function Offers() {
               <div className="bundle-card">
                 <h3 className="bundle-title">Health Boost</h3>
                 <div className="bundle-items">
-                  <div className="bundle-item"><img src="/images/organic-img/green-kale.jpg" alt="Superfoods" /><div>Superfoods</div></div>
-                  <div className="bundle-item"><img src="/images/organic-img/greek-yogurt.jpg" alt="Supplements" /><div>Supplements</div></div>
-                  <div className="bundle-item"><img src="/images/organic-img/green-tea-face-mask.jpg" alt="Tea" /><div>Herbal Teas</div></div>
+                  <div className="bundle-item"><img src="./images/organic-img/green-kale.jpg" alt="Superfoods" /><div>Superfoods</div></div>
+                  <div className="bundle-item"><img src="./images/organic-img/greek-yogurt.jpg" alt="Supplements" /><div>Supplements</div></div>
+                  <div className="bundle-item"><img src="./images/organic-img/green-tea-face-mask.jpg" alt="Tea" /><div>Herbal Teas</div></div>
                 </div>
                 <div className="bundle-savings">Save $20</div>
                 <div className="bundle-price">$39.99</div>
@@ -450,9 +450,9 @@ export default function Offers() {
               <div className="bundle-card">
                 <h3 className="bundle-title">Snack Lover</h3>
                 <div className="bundle-items">
-                  <div className="bundle-item"><img src="/images/organic-img/oatmeal-cookies.jpg" alt="Cookies" /><div>Oatmeal Cookies</div></div>
-                  <div className="bundle-item"><img src="/images/organic-img/coconut-chips.jpg" alt="Chips" /><div>Coconut Chips</div></div>
-                  <div className="bundle-item"><img src="/images/organic-img/brown-rice-crackers.jpg" alt="Crackers" /><div>Rice Crackers</div></div>
+                  <div className="bundle-item"><img src="./images/organic-img/oatmeal-cookies.jpg" alt="Cookies" /><div>Oatmeal Cookies</div></div>
+                  <div className="bundle-item"><img src="./images/organic-img/coconut-chips.jpg" alt="Chips" /><div>Coconut Chips</div></div>
+                  <div className="bundle-item"><img src="./images/organic-img/brown-rice-crackers.jpg" alt="Crackers" /><div>Rice Crackers</div></div>
                 </div>
                 <div className="bundle-savings">Save $10</div>
                 <div className="bundle-price">$19.99</div>

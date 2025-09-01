@@ -64,7 +64,7 @@ export default function Products() {
   }
 
   useEffect(() => {
-    fetch('/json/products.json')
+    fetch('./json/products.json')
       .then(response => response.json())
       .then(data => {
         // Handle both array and object with products property
