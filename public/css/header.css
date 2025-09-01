@@ -373,7 +373,7 @@ header.scrolled {
 /* Cart */
 .cart-link {
   position: relative !important;
-  padding: 0rem !important;
+  padding: 0.5rem !important;
   border-radius: 50% !important;
   transition: background-color 0.15s ease, transform 0.15s ease !important;
   background: rgba(255, 255, 255, 0.1) !important;
@@ -381,6 +381,7 @@ header.scrolled {
   overflow: visible !important;
   margin-right: 15px !important;
   z-index: 1000 !important;
+  transform: translateY(8%) translateX(15%)!important;
 }
 .cart-link:hover {
   background: rgba(255, 255, 255, 0.2) !important;
@@ -459,6 +460,7 @@ html {
   font-size: 0.75rem !important;
   margin-top: 3px !important;
   white-space: nowrap !important;
+  transform: translateY(-30%) !important;
 }
 
 .auth-links a {
@@ -592,6 +594,7 @@ html {
   position: relative !important;
   overflow: visible !important;
   flex-wrap: nowrap !important;
+  transform: translateY(25%) translateX(10%) !important;
 }
 
 .search-container .form-control {
