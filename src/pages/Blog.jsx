@@ -1,20 +1,7 @@
-import { useEffect, useMemo, useState } from 'react'
-// Attach page-scoped CSS dynamically
-function usePageStyles(hrefs) {
-  useEffect(() => {
-    const links = hrefs.map(href => {
-      const el = document.createElement('link')
-      el.rel = 'stylesheet'
-      el.href = href
-      document.head.appendChild(el)
-      return el
-    })
-    return () => { links.forEach(el => document.head.removeChild(el)) }
-  }, [hrefs.join('|')])
-}
+import { useMemo, useState } from 'react'
+// CSS files are now imported globally in App.jsx
 
 export default function Blog() {
-  usePageStyles(['/css/blog.css'])
   const [activeCategory, setActiveCategory] = useState('all')
 
   const posts = useMemo(() => ([

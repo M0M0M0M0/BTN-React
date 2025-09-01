@@ -1,28 +1,7 @@
 import { Link } from 'react-router-dom'
-import { useEffect } from 'react'
-// Attach page-scoped CSS dynamically to avoid cross-page overrides
-function usePageStyles(hrefs) {
-  useEffect(() => {
-    const links = hrefs.map(href => {
-      const el = document.createElement('link')
-      el.rel = 'stylesheet'
-      el.href = href
-      document.head.appendChild(el)
-      return el
-    })
-    return () => {
-      links.forEach(el => document.head.removeChild(el))
-    }
-  }, [hrefs.join('|')])
-}
+// CSS files are now imported globally in App.jsx
 
 export default function Home() {
-  usePageStyles([
-    '/css/layout.css',
-    '/css/content1.css',
-    '/css/content2.css',
-    '/css/content3.css'
-  ])
   return (
     <main className="section main">
       <div className="hero">
