@@ -5,6 +5,130 @@
   --bs-navbar-nav-link-padding-x: 1.2rem !important;
   --bs-navbar-padding-y: 0.8rem !important;
 }
+
+/* ===========================
+   RIPPLE EFFECT
+=========================== */
+.ripple-button,
+.ripple-link {
+  position: relative !important;
+  overflow: hidden !important;
+  transition: background-color 0.15s ease, color 0.15s ease,
+    transform 0.15s ease !important;
+}
+
+/* Click feedback animation */
+.ripple-button:active,
+.ripple-link:active {
+  transform: scale(0.98) !important;
+}
+
+/* Enhanced ripple visibility for dark backgrounds */
+.nav-link:active .ripple,
+.dropdown-item:active .ripple {
+  background: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Enhanced ripple visibility for light backgrounds */
+.search-container .btn:active .ripple {
+  background: rgba(0, 0, 0, 0.6) !important;
+}
+
+.ripple {
+  position: absolute !important;
+  border-radius: 50% !important;
+  background: rgba(255, 255, 255, 0.8) !important;
+  transform: scale(0) !important;
+  animation: ripple-animation 0.6s ease-out !important;
+  pointer-events: none !important;
+  z-index: 10 !important;
+  will-change: transform, opacity !important;
+  backface-visibility: hidden !important;
+}
+
+@keyframes ripple-animation {
+  0% {
+    transform: scale(0) !important;
+    opacity: 0.8 !important;
+  }
+  50% {
+    transform: scale(2) !important;
+    opacity: 0.4 !important;
+  }
+  100% {
+    transform: scale(4) !important;
+    opacity: 0 !important;
+  }
+}
+
+/* Ripple effect for nav-links */
+.nav-link.ripple-link,
+.nav-link {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.nav-link .ripple {
+  background: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Ripple effect for dropdown items */
+.dropdown-item.ripple-link,
+.dropdown-item {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.dropdown-item .ripple {
+  background: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Ripple effect for search button */
+.search-container .btn.ripple-button,
+.search-container .btn {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.search-container .btn .ripple {
+  background: rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Ripple effect for cart link */
+.cart-link.ripple-link,
+.cart-link {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.cart-link .ripple {
+  background: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Ripple effect for auth links */
+.auth-links a.ripple-link,
+.auth-links a {
+  position: relative !important;
+  overflow: hidden !important;
+  display: inline-block !important;
+  padding: 2px 4px !important;
+  border-radius: 4px !important;
+}
+
+.auth-links a .ripple {
+  background: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Ensure navbar brand has ripple effect */
+.navbar-brand.ripple-link,
+.navbar-brand {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.navbar-brand .ripple {
+  background: rgba(255, 255, 255, 0.5) !important;
+}
 header {
   background: rgb(24, 26, 27) !important;
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3) !important;
@@ -39,17 +163,20 @@ header.scrolled {
 
 /* Logo */
 .navbar-brand {
-  transition: transform 0.3s ease !important;
+  transition: transform 0.2s ease !important;
+  will-change: transform !important;
+  backface-visibility: hidden !important;
+  transform: translateZ(0) !important;
 }
 .navbar-brand:hover {
-  transform: scale(1.05) !important;
+  transform: scale(1.03) !important;
 }
 .navbar-brand img {
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1)) !important;
-  transition: filter 0.3s ease !important;
+  transition: filter 0.2s ease !important;
 }
 .navbar-brand:hover img {
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2)) !important;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.15)) !important;
 }
 
 /* Navigation links */
@@ -60,11 +187,15 @@ header.scrolled {
   padding: 0.8rem 1.2rem !important;
   margin: 0 0.2rem !important;
   border-radius: 8px !important;
-  transition: all 0.3s ease !important;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease,
+    box-shadow 0.2s ease !important;
   position: relative !important;
   overflow: hidden !important;
   font-size: 1.12rem !important;
   display: block !important;
+  will-change: transform, background-color, color, box-shadow !important;
+  backface-visibility: hidden !important;
+  transform: translateZ(0) !important;
 }
 .nav-link::before {
   content: "";
@@ -79,7 +210,8 @@ header.scrolled {
     rgba(255, 255, 255, 0.3),
     transparent
   ) !important;
-  transition: left 0.5s ease !important;
+  transition: left 0.3s ease !important;
+  pointer-events: none !important;
 }
 .nav-link:hover::before {
   left: 100% !important;
@@ -87,8 +219,8 @@ header.scrolled {
 .nav-link:hover {
   background-color: rgba(255, 255, 255, 0.1) !important;
   color: #f0f0f0 !important;
-  transform: translateY(-2px) !important;
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1) !important;
 }
 
 /* Dropdown menu */
@@ -120,15 +252,35 @@ header.scrolled {
 /* Dropdown item */
 .dropdown-item {
   padding: 0.7rem 1.5rem !important;
-  transition: all 0.3s ease !important;
+  transition: background-color 0.15s ease, color 0.15s ease, border 0.15s ease !important;
   color: #ffffff !important;
   font-weight: 500 !important;
   border-radius: 15px !important;
+  will-change: background-color, color, border !important;
+  backface-visibility: hidden !important;
+  transform: translateZ(0) !important;
 }
 .dropdown-item:hover {
   background: rgba(255, 255, 255, 0.1) !important;
   color: #f0f0f0 !important;
-  transform: translateY(-2px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Reset focus/active states to prevent stuck hover effect */
+.dropdown-item:focus,
+.dropdown-item:active,
+.dropdown-item.active {
+  background: transparent !important;
+  color: #ffffff !important;
+  border: none !important;
+  outline: none !important;
+}
+
+/* Ensure hover still works after clicking */
+.dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #f0f0f0 !important;
+  border: 1px solid rgba(255, 255, 255, 0.6) !important;
 }
 
 /* Submenu */
@@ -208,14 +360,15 @@ header.scrolled {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  transition: all 0.3s ease !important;
+  transition: background-color 0.15s ease, transform 0.15s ease,
+    box-shadow 0.15s ease !important;
   flex-shrink: 0 !important;
   z-index: 10 !important;
 }
 .search-container .btn:hover {
   background: #f0f0f0 !important;
-  transform: translateY(-50%) scale(1.1) !important;
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2) !important;
+  transform: translateY(-50%) scale(1.05) !important;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2) !important;
 }
 
 /* Cart */
@@ -223,16 +376,16 @@ header.scrolled {
   position: relative !important;
   padding: 0.5rem !important;
   border-radius: 50% !important;
-  transition: all 0.3s ease !important;
+  transition: background-color 0.15s ease, transform 0.15s ease !important;
   background: rgba(255, 255, 255, 0.1) !important;
 }
 .cart-link:hover {
   background: rgba(255, 255, 255, 0.2) !important;
-  transform: scale(1.1) !important;
+  transform: scale(1.05) !important;
 }
 .cart-link img {
   filter: brightness(10) invert(1) !important;
-  transition: filter 0.3s ease !important;
+  transition: filter 0.15s ease !important;
 }
 .cart-link:hover img {
   filter: brightness(0) invert(1) !important;
@@ -296,7 +449,7 @@ html {
   text-decoration: underline !important;
   margin: 0 0.2rem !important;
   font-weight: 500 !important;
-  transition: color 0.3s ease !important;
+  transition: color 0.15s ease !important;
 }
 
 .auth-links a:hover {

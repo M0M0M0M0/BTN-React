@@ -1,5 +1,8 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { useState, useEffect, useRef } from 'react'
+import RippleButton from './RippleButton'
+import RippleLink from './RippleLink'
+import RippleAnchor from './RippleAnchor'
 // page-level CSS is linked globally via index.html
 
 export default function Header() {
@@ -60,7 +63,12 @@ export default function Header() {
   };
 
   // Handle category navigation
-  const handleCategoryClick = (category) => {
+  const handleCategoryClick = (category, event) => {
+    // Remove focus from clicked element to prevent stuck hover effect
+    if (event && event.target) {
+      event.target.blur();
+    }
+    
     // Check if it's an offers category
     const offersCategories = ['weekly', 'bogo', 'bundles', 'clearance', 'seasonal', 'gift'];
     if (offersCategories.includes(category)) {
@@ -87,9 +95,9 @@ export default function Header() {
     <header>
       <nav className="navbar navbar-expand-lg navbar-light py-3 position-relative">
         <div className="container-fluid">
-          <Link className="navbar-brand" to="/">
+          <RippleLink className="navbar-brand" to="/">
             <img src="/img/logo/logo.png" alt="Logo" height="50" />
-          </Link>
+          </RippleLink>
 
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
             <span className="navbar-toggler-icon"></span>
@@ -98,60 +106,60 @@ export default function Header() {
           <div className="collapse navbar-collapse justify-content-center position-absolute top-50 start-50 translate-middle" id="mainNavbar">
             <ul className="navbar-nav mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link" to="/">HOME</Link>
+                <RippleLink className="nav-link" to="/">HOME</RippleLink>
               </li>
               <li className="nav-item dropdown">
-                <Link className="nav-link dropdown-toggle" to="/product" id="productsDropdown">PRODUCTS</Link>
+                <RippleLink className="nav-link dropdown-toggle" to="/product" id="productsDropdown">PRODUCTS</RippleLink>
                 <ul className="dropdown-menu">
                   <li className="dropdown-submenu">
-                    <a className="dropdown-item dropdown-toggle" href="#">Fruits & Vegetables</a>
+                    <RippleAnchor className="dropdown-item dropdown-toggle" href="#">Fruits & Vegetables</RippleAnchor>
                     <ul className="dropdown-menu">
-                      <li><a className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('fruits'); }}>Fruits</a></li>
-                      <li><a className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('vegetables'); }}>Vegetables</a></li>
-                      <li><a className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('all'); }}>Organic Produce</a></li>
+                      <li><RippleAnchor className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('fruits', e); }}>Fruits</RippleAnchor></li>
+                      <li><RippleAnchor className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('vegetables', e); }}>Vegetables</RippleAnchor></li>
+                      <li><RippleAnchor className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('all', e); }}>Organic Produce</RippleAnchor></li>
                     </ul>
                   </li>
                   <li className="dropdown-submenu">
-                    <a className="dropdown-item dropdown-toggle" href="#">Juices & Dairy</a>
+                    <RippleAnchor className="dropdown-item dropdown-toggle" href="#">Juices & Dairy</RippleAnchor>
                     <ul className="dropdown-menu">
-                      <li><a className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('juice'); }}>Organic Juices</a></li>
-                      <li><a className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('dairy'); }}>Fresh Dairy Products</a></li>
+                      <li><RippleAnchor className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('juice', e); }}>Organic Juices</RippleAnchor></li>
+                      <li><RippleAnchor className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('dairy', e); }}>Fresh Dairy Products</RippleAnchor></li>
                     </ul>
                   </li>
-                  <li><a className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('processed-food'); }}>Processed Food</a></li>
-                  <li><a className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('skin-care'); }}>Skin Care</a></li>
+                  <li><RippleAnchor className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('processed-food', e); }}>Processed Food</RippleAnchor></li>
+                  <li><RippleAnchor className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('skin-care', e); }}>Skin Care</RippleAnchor></li>
                 </ul>
               </li>
               <li className="nav-item dropdown">
-                <Link className="nav-link dropdown-toggle" to="/offers" id="offersDropdown">SPECIAL OFFERS</Link>
+                <RippleLink className="nav-link dropdown-toggle" to="/offers" id="offersDropdown">SPECIAL OFFERS</RippleLink>
                 <ul className="dropdown-menu">
-                  <li><a className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('weekly'); }}>Weekly Discounts</a></li>
-                  <li><a className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('bogo'); }}>Buy 1 Get 1 Free</a></li>
-                  <li><a className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('seasonal'); }}>Seasonal Bundles</a></li>
-                  <li><a className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('clearance'); }}>Clearance Sale</a></li>
-                  <li><a className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('gift'); }}>Gift Vouchers</a></li>
+                  <li><RippleAnchor className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('weekly', e); }}>Weekly Discounts</RippleAnchor></li>
+                  <li><RippleAnchor className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('bogo', e); }}>Buy 1 Get 1 Free</RippleAnchor></li>
+                  <li><RippleAnchor className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('seasonal', e); }}>Seasonal Bundles</RippleAnchor></li>
+                  <li><RippleAnchor className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('clearance', e); }}>Clearance Sale</RippleAnchor></li>
+                  <li><RippleAnchor className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('gift', e); }}>Gift Vouchers</RippleAnchor></li>
                 </ul>
               </li>
               <li className="nav-item dropdown">
-                <a className="nav-link dropdown-toggle" href="#" id="aboutDropdown">ABOUT US</a>
+                <RippleAnchor className="nav-link dropdown-toggle" href="#" id="aboutDropdown">ABOUT US</RippleAnchor>
                 <ul className="dropdown-menu">
-                  <li><a className="dropdown-item" href="#">Our Story</a></li>
-                  <li><a className="dropdown-item" href="#">Farming Practices</a></li>
-                  <li><a className="dropdown-item" href="#">Meet the Farmers</a></li>
-                  <li><a className="dropdown-item" href="#">Quality & Safety Standards</a></li>
-                  <li><a className="dropdown-item" href="#">Careers</a></li>
+                  <li><RippleAnchor className="dropdown-item" href="#">Our Story</RippleAnchor></li>
+                  <li><RippleAnchor className="dropdown-item" href="#">Farming Practices</RippleAnchor></li>
+                  <li><RippleAnchor className="dropdown-item" href="#">Meet the Farmers</RippleAnchor></li>
+                  <li><RippleAnchor className="dropdown-item" href="#">Quality & Safety Standards</RippleAnchor></li>
+                  <li><RippleAnchor className="dropdown-item" href="#">Careers</RippleAnchor></li>
                 </ul>
               </li>
               <li className="nav-item dropdown">
-                <Link className="nav-link dropdown-toggle" to="/blog" id="blogDropdown">BLOG</Link>
+                <RippleLink className="nav-link dropdown-toggle" to="/blog" id="blogDropdown">BLOG</RippleLink>
                 <ul className="dropdown-menu">
-                  <li><a className="dropdown-item" href="#">Healthy Eating Tips</a></li>
-                  <li><a className="dropdown-item" href="#">Easy Recipes</a></li>
-                  <li><a className="dropdown-item" href="#">Seasonal Food Guides</a></li>
-                  <li><a className="dropdown-item" href="#">Customer Stories</a></li>
+                  <li><RippleAnchor className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); navigate('/blog?category=tips'); }}>Healthy Eating Tips</RippleAnchor></li>
+                  <li><RippleAnchor className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); navigate('/blog?category=recipes'); }}>Easy Recipes</RippleAnchor></li>
+                  <li><RippleAnchor className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); navigate('/blog?category=guides'); }}>Seasonal Food Guides</RippleAnchor></li>
+                  <li><RippleAnchor className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); navigate('/blog?category=stories'); }}>Customer Stories</RippleAnchor></li>
                 </ul>
               </li>
-              <li className="nav-item"><a className="nav-link" href="#">CONTACT</a></li>
+              <li className="nav-item"><RippleAnchor className="nav-link" href="#">CONTACT</RippleAnchor></li>
             </ul>
           </div>
 
@@ -167,7 +175,7 @@ export default function Header() {
                   onChange={handleSearch}
                   onKeyPress={handleKeyPress}
                 />
-                <button 
+                <RippleButton 
                   className="btn" 
                   type="button"
                   onClick={() => {
@@ -180,7 +188,7 @@ export default function Header() {
                   }}
                 >
                   <i className="fas fa-search"></i>
-                </button>
+                </RippleButton>
               </div>
               
               {/* Search Results Dropdown - Tách riêng khỏi search container */}
@@ -234,13 +242,13 @@ export default function Header() {
                   <div className="no-results">No products found</div>
                 </div>
               )}
-              <a href="#" className="cart-link position-relative">
+              <RippleAnchor href="#" className="cart-link position-relative">
                 <i className="fas fa-shopping-cart" style={{ fontSize: '1.5rem', color: 'rgb(222, 223, 224)' }}></i>
                 <span className="cart-badge position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">3</span>
-              </a>
+              </RippleAnchor>
             </div>
             <div className="auth-links">
-              <a href="#">Login</a> / <a href="#">Register</a>
+              <RippleAnchor href="#">Login</RippleAnchor> / <RippleAnchor href="#">Register</RippleAnchor>
             </div>
           </div>
         </div>
