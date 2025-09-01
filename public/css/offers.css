@@ -22,7 +22,7 @@ body {
 .offers-hero {
   background-size: cover;
   background-position: center;
-  padding: 40px 0 50px;
+  padding: 25px 0 15px;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -44,20 +44,20 @@ body {
 }
 
 .offers-hero h1 {
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: bold;
   color: #fff;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   position: relative;
   z-index: 1;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .offers-hero p {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: #fff;
   max-width: 600px;
-  margin: 0 auto 30px;
+  margin: 0 auto 20px;
   position: relative;
   z-index: 1;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
@@ -78,9 +78,28 @@ body {
   font-weight: 600;
 }
 
+/* Countdown timer inside Deal of the Week */
+.deal-countdown {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 15px;
+  padding: 15px;
+}
+
+.deal-countdown h4 {
+  color: white;
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+.deal-countdown .timer-unit {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
 .timer-display {
   display: flex;
-  gap: 20px;
+  gap: 15px;
   justify-content: center;
 }
 
@@ -88,25 +107,25 @@ body {
   text-align: center;
   background: var(--light-green);
   color: white;
-  padding: 15px;
-  border-radius: 10px;
-  min-width: 70px;
+  padding: 12px;
+  border-radius: 8px;
+  min-width: 60px;
 }
 
 .timer-unit .number {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   display: block;
 }
 
 .timer-unit .label {
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   text-transform: uppercase;
 }
 
 /* Offer Categories */
 .offers-section {
-  padding: 80px 0;
+  padding: 20px 0;
 }
 
 .offer-categories {
@@ -149,9 +168,9 @@ body {
     var(--orange-accent) 100%
   );
   color: white;
-  border-radius: 20px;
-  padding: 40px;
-  margin-bottom: 50px;
+  border-radius: 15px;
+  padding: 25px;
+  margin-bottom: 30px;
   position: relative;
   overflow: hidden;
 }
@@ -176,16 +195,21 @@ body {
   z-index: 2;
 }
 
+.featured-deal-content p {
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
 .featured-deal h2 {
   font-family: "Playfair Display", serif;
-  font-size: 2.5rem;
-  margin-bottom: 15px;
+  font-size: 2rem;
+  margin-bottom: 8px;
 }
 
 .featured-deal-price {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: bold;
-  margin: 20px 0;
+  margin: 12px 0;
 }
 
 .featured-deal-price .original {
@@ -198,11 +222,11 @@ body {
 .deal-cta {
   background: white;
   color: var(--red-accent);
-  padding: 15px 30px;
+  padding: 12px 25px;
   border: none;
-  border-radius: 25px;
+  border-radius: 20px;
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);

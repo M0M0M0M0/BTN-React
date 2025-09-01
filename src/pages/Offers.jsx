@@ -1,43 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
-import LoadingSpinner from '../components/LoadingSpinner'
-
-// Attach page-scoped CSS dynamically
-function usePageStyles(hrefs) {
-  const [stylesLoaded, setStylesLoaded] = useState(false)
-  
-  useEffect(() => {
-    const links = hrefs.map(href => {
-      const el = document.createElement('link')
-      el.rel = 'stylesheet'
-      el.href = href
-      
-      // Add load event listener to track when CSS is loaded
-      el.onload = () => {
-        // Check if all stylesheets are loaded
-        const allLinks = document.querySelectorAll('link[rel="stylesheet"]')
-        const loadedLinks = Array.from(allLinks).filter(link => link.sheet !== null)
-        if (loadedLinks.length >= hrefs.length) {
-          // Add a small delay to ensure CSS is fully applied
-          setTimeout(() => setStylesLoaded(true), 100)
-        }
-      }
-      
-      document.head.appendChild(el)
-      return el
-    })
-    
-    // Fallback: if onload doesn't fire, set loaded after a reasonable timeout
-    const fallbackTimer = setTimeout(() => setStylesLoaded(true), 500)
-    
-    return () => { 
-      links.forEach(el => document.head.removeChild(el))
-      clearTimeout(fallbackTimer)
-    }
-  }, [hrefs.join('|')])
-  
-  return stylesLoaded
-}
+// CSS files are now imported globally in App.jsx
 
 function useCountdown(msFromNow) {
   const [t, setT] = useState({ d: '00', h: '00', m: '00', s: '00' })
@@ -62,7 +25,6 @@ function useCountdown(msFromNow) {
 }
 
 export default function Offers() {
-  const stylesLoaded = usePageStyles(['/css/offers.css'])
   const [searchParams, setSearchParams] = useSearchParams()
   const [selectedCategory, setSelectedCategory] = useState('all')
   const t = useCountdown((3*24*60*60 + 12*60*60) * 1000)
@@ -81,93 +43,88 @@ export default function Offers() {
     setSearchParams({ category: newCategory })
   }
 
-  // Loading screen while CSS is being loaded
-  if (!stylesLoaded) {
-    return <LoadingSpinner message="Loading Offers..." />
-  }
-
   return (
     <main className="offers-main">
       <section className="offers-hero">
         <div className="container">
           <h1>Special Offers</h1>
           <p>Don't miss out on our amazing deals and discounts on fresh organic produce</p>
-          <div className="countdown-timer">
-            <h4><i className="fas fa-clock"></i> Limited Time Offer Ends In:</h4>
-            <div className="timer-display" id="countdownTimer">
-              <div className="timer-unit"><span className="number" id="days">{t.d}</span><span className="label">Days</span></div>
-              <div className="timer-unit"><span className="number" id="hours">{t.h}</span><span className="label">Hours</span></div>
-              <div className="timer-unit"><span className="number" id="minutes">{t.m}</span><span className="label">Minutes</span></div>
-              <div className="timer-unit"><span className="number" id="seconds">{t.s}</span><span className="label">Seconds</span></div>
-            </div>
-          </div>
         </div>
       </section>
-      <section className="offers-section">
-        <div className="container">
-          <div className="offer-categories">
-            <button 
-              className={`category-btn ${selectedCategory === 'all' ? 'active' : ''}`} 
-              onClick={() => handleCategoryChange('all')}
-            >
-              <i className="fas fa-star"></i> All Offers
-            </button>
-            <button 
-              className={`category-btn ${selectedCategory === 'weekly' ? 'active' : ''}`} 
-              onClick={() => handleCategoryChange('weekly')}
-            >
-              <i className="fas fa-calendar-week"></i> Weekly Discounts
-            </button>
-            <button 
-              className={`category-btn ${selectedCategory === 'bogo' ? 'active' : ''}`} 
-              onClick={() => handleCategoryChange('bogo')}
-            >
-              <i className="fas fa-plus"></i> Buy 1 Get 1
-            </button>
-            <button 
-              className={`category-btn ${selectedCategory === 'bundles' ? 'active' : ''}`} 
-              onClick={() => handleCategoryChange('bundles')}
-            >
-              <i className="fas fa-box"></i> Bundles
-            </button>
-            <button 
-              className={`category-btn ${selectedCategory === 'clearance' ? 'active' : ''}`} 
-              onClick={() => handleCategoryChange('clearance')}
-            >
-              <i className="fas fa-fire"></i> Clearance
-            </button>
-            <button 
-              className={`category-btn ${selectedCategory === 'seasonal' ? 'active' : ''}`} 
-              onClick={() => handleCategoryChange('seasonal')}
-            >
-              <i className="fas fa-leaf"></i> Seasonal Bundles
-            </button>
-            <button 
-              className={`category-btn ${selectedCategory === 'gift' ? 'active' : ''}`} 
-              onClick={() => handleCategoryChange('gift')}
-            >
-              <i className="fas fa-gift"></i> Gift Vouchers
-            </button>
-          </div>
-
-          <div className="featured-deal">
-            <div className="row align-items-center">
-              <div className="col-md-8">
-                <div className="featured-deal-content">
-                  <h2>🌟 Deal of the Week</h2>
-                  <p>Premium Organic Fruit Box - 20 lbs of fresh seasonal fruits delivered to your door!</p>
-                  <div className="featured-deal-price">
-                    <span className="original">$89.99</span>
-                    <span>$59.99</span>
+              <section className="offers-section">
+          <div className="container">
+            <div className="featured-deal">
+              <div className="row align-items-center">
+                <div className="col-md-8">
+                  <div className="featured-deal-content">
+                    <div className="countdown-timer deal-countdown">
+                      <h4><i className="fas fa-clock"></i> Limited Time Offer Ends In:</h4>
+                      <div className="timer-display" id="countdownTimer">
+                        <div className="timer-unit"><span className="number" id="days">{t.d}</span><span className="label">Days</span></div>
+                        <div className="timer-unit"><span className="number" id="hours">{t.h}</span><span className="label">Hours</span></div>
+                        <div className="timer-unit"><span className="number" id="minutes">{t.m}</span><span className="label">Minutes</span></div>
+                        <div className="timer-unit"><span className="number" id="seconds">{t.s}</span><span className="label">Seconds</span></div>
+                      </div>
+                    </div>
+                    <h2>🌟 Deal of the Week</h2>
+                    <p>Premium Organic Fruit Box - 20 lbs of fresh seasonal fruits delivered to your door!</p>
+                    <div className="featured-deal-price">
+                      <span className="original">$89.99</span>
+                      <span>$59.99</span>
+                    </div>
+                    <button className="deal-cta"><i className="fas fa-shopping-cart"></i> Claim This Deal</button>
                   </div>
-                  <button className="deal-cta"><i className="fas fa-shopping-cart"></i> Claim This Deal</button>
+                </div>
+                <div className="col-md-4 text-end">
+                  <img src="./images/organic-img/green-grapes.jpg" alt="Fruit Box" style={{ borderRadius: 15, maxWidth: '100%' }} />
                 </div>
               </div>
-              <div className="col-md-4 text-end">
-                <img src="./images/organic-img/green-grapes.jpg" alt="Fruit Box" style={{ borderRadius: 15, maxWidth: '100%' }} />
-              </div>
             </div>
-          </div>
+
+            <div className="offer-categories">
+              <button 
+                className={`category-btn ${selectedCategory === 'all' ? 'active' : ''}`} 
+                onClick={() => handleCategoryChange('all')}
+              >
+                <i className="fas fa-star"></i> All Offers
+              </button>
+              <button 
+                className={`category-btn ${selectedCategory === 'weekly' ? 'active' : ''}`} 
+                onClick={() => handleCategoryChange('weekly')}
+              >
+                <i className="fas fa-calendar-week"></i> Weekly Discounts
+              </button>
+              <button 
+                className={`category-btn ${selectedCategory === 'bogo' ? 'active' : ''}`} 
+                onClick={() => handleCategoryChange('bogo')}
+              >
+                <i className="fas fa-plus"></i> Buy 1 Get 1
+              </button>
+              <button 
+                className={`category-btn ${selectedCategory === 'bundles' ? 'active' : ''}`} 
+                onClick={() => handleCategoryChange('bundles')}
+              >
+                <i className="fas fa-box"></i> Bundles
+              </button>
+              <button 
+                className={`category-btn ${selectedCategory === 'clearance' ? 'active' : ''}`} 
+                onClick={() => handleCategoryChange('clearance')}
+              >
+                <i className="fas fa-fire"></i> Clearance
+              </button>
+              <button 
+                className={`category-btn ${selectedCategory === 'seasonal' ? 'active' : ''}`} 
+                onClick={() => handleCategoryChange('seasonal')}
+              >
+                <i className="fas fa-leaf"></i> Seasonal Bundles
+              </button>
+              <button 
+                className={`category-btn ${selectedCategory === 'gift' ? 'active' : ''}`} 
+                onClick={() => handleCategoryChange('gift')}
+              >
+                <i className="fas fa-gift"></i> Gift Vouchers
+              </button>
+            </div>
 
           <div className="offers-grid" id="offersGrid">
             {selectedCategory === 'all' || selectedCategory === 'weekly' ? (
