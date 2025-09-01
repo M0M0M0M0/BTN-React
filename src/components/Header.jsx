@@ -165,7 +165,7 @@ export default function Header() {
 
           <div className="d-flex flex-column align-items-end ms-auto search-cart-container">
             <div className="d-flex align-items-center position-relative" ref={searchRef}>
-              <div className="search-container d-flex me-3">
+              <div className="search-container position-relative me-3">
                 <input 
                   className="form-control" 
                   type="search" 
@@ -176,7 +176,7 @@ export default function Header() {
                   onKeyPress={handleKeyPress}
                 />
                 <RippleButton 
-                  className="btn" 
+                  className="btn search-btn position-absolute" 
                   type="button"
                   onClick={() => {
                     if (searchResults.length > 0) {
@@ -244,7 +244,7 @@ export default function Header() {
               )}
               <RippleAnchor href="#" className="cart-link position-relative">
                 <i className="fas fa-shopping-cart" style={{ fontSize: '1.5rem', color: 'rgb(222, 223, 224)' }}></i>
-                <span className="cart-badge position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">3</span>
+                <span className="cart-badge position-absolute top-0 start-100 translate-middle badge rounded-pill">3</span>
               </RippleAnchor>
             </div>
             <div className="auth-links">
