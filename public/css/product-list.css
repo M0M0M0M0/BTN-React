@@ -69,8 +69,8 @@
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
-  padding: 2rem 0;
+  gap: 1rem;
+  padding: 0rem 0;
 }
 
 .product-card {
@@ -84,6 +84,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  width: 280px;
 }
 
 .product-card:hover {
@@ -147,6 +148,8 @@
   display: flex;
   flex-direction: column;
   flex: 1;
+  justify-content: space-between;
+  min-height: 0;
 }
 
 .product-info h4 {
@@ -218,24 +221,50 @@
   background: linear-gradient(135deg, #8bc34a, #7cb342);
   color: white;
   border: none;
-  padding: 0.7rem 1.5rem;
+  padding: 0;
   border-radius: 20px;
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s ease;
   width: 100%;
+  height: 44px;
   font-size: 0.9rem;
   text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+  min-height: 44px;
+  max-height: 44px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  line-height: 1;
 }
 
 .add-to-cart-btn:hover {
   background: linear-gradient(135deg, #7cb342, #689f38);
   transform: translateY(-2px);
   box-shadow: 0 4px 15px rgba(139, 195, 74, 0.3);
+}
+
+/* Ensure button text doesn't wrap and maintains consistent size */
+.add-to-cart-btn span,
+.add-to-cart-btn i {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  flex-shrink: 0;
+}
+
+/* Force consistent button dimensions */
+.add-to-cart-btn {
+  box-sizing: border-box !important;
+  height: 44px !important;
+  min-height: 44px !important;
+  max-height: 44px !important;
+  width: 100% !important;
+  flex: 0 0 44px !important;
 }
 
 .product-description {
@@ -361,7 +390,20 @@
   }
 
   .add-to-cart-btn {
-    padding: 0.6rem 1rem;
+    padding: 0;
     font-size: 0.8rem;
+    height: 40px !important;
+    min-height: 40px !important;
+    max-height: 40px !important;
+    flex: 0 0 40px !important;
   }
+}
+
+/* Global button size enforcement */
+.add-to-cart-btn {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
 }

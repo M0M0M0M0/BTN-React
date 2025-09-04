@@ -13,6 +13,7 @@ import '../public/css/product-list.css'
 import '../public/css/blog.css'
 import Header from './components/Header.jsx'
 import Footer from './components/Footer.jsx'
+import ScrollToTop from './components/ScrollToTop.jsx'
 import Home from './pages/Home.jsx'
 import Products from './pages/Products.jsx'
 import ProductDetail from './pages/ProductDetail.jsx'
@@ -22,6 +23,7 @@ import Blog from './pages/Blog.jsx'
 function App() {
   return (
     <>
+      <ScrollToTop />
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />

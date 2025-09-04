@@ -381,11 +381,10 @@ header.scrolled {
   overflow: visible !important;
   margin-right: 15px !important;
   z-index: 1000 !important;
-  transform: translateY(8%) translateX(15%)!important;
+  transform: translateY(8%) translateX(15%) !important;
 }
 .cart-link:hover {
   background: rgba(255, 255, 255, 0.2) !important;
-  transform: scale(1.05) !important;
 }
 .cart-link img {
   filter: brightness(10) invert(1) !important;
@@ -443,7 +442,7 @@ header.scrolled {
 
 /* Smooth scrolling */
 html {
-  scroll-behavior: smooth !important;
+  scroll-behavior: auto !important;
 }
 
 /* Section transitions */
