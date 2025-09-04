@@ -15,13 +15,7 @@ body {
 img {
   max-width: 100%;
 }
-/* a{
-    text-decoration: none;
-    color: coral;
-}
-a:hover{
-    color: rgb(24, 162, 24);
-} */
+
 p {
   margin-bottom: 10px;
 }
@@ -30,15 +24,7 @@ p {
   float: left;
   width: 100%;
 }
-.container {
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 15px; /* thêm khoảng đệm khi màn hình nhỏ */
-  box-sizing: border-box;
-}
 
-/* End */
 /* Content */
 .a-left {
   float: left;
@@ -55,21 +41,3 @@ p {
 .three-column .content {
   width: 50%;
 }
-/* @media screen and (maxwidth: 1200px) {
-    .container{
-        width: 1200px;
-    }
-    
-} */
-/* @media screen and (max-width: 992px) {
-  body {
-    background-color: blue;
-  }
-} */
-
-/* On screens that are 600px or less, set the background color to olive */
-/* @media screen and (max-width: 600px) {
-  body {
-    background-color: olive;
-  }
-} */

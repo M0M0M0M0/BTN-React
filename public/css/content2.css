@@ -2,11 +2,7 @@
   float: left;
   width: 100%;
 }
-.container {
-  float: none;
-  margin: 0 auto;
-  width: 1200px;
-}
+/* .container class removed to avoid conflict with Bootstrap */
 
 a {
   text-decoration: none;

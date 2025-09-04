@@ -30,7 +30,7 @@
 }
 
 /* Enhanced ripple visibility for light backgrounds */
-.search-container .btn:active .ripple {
+.search-container .header-btn:active .ripple {
   background: rgba(0, 0, 0, 0.6) !important;
 }
 
@@ -84,13 +84,13 @@
 }
 
 /* Ripple effect for search button */
-.search-container .btn.ripple-button,
-.search-container .btn {
+.search-container .header-btn.ripple-button,
+.search-container .header-btn {
   position: relative !important;
   overflow: hidden !important;
 }
 
-.search-container .btn .ripple {
+.search-container .header-btn .ripple {
   background: rgba(0, 0, 0, 0.4) !important;
 }
 
@@ -146,7 +146,7 @@ header.scrolled {
   backdrop-filter: blur(10px) !important;
 }
 
-/* Navbar */
+/* Bootstrap Navbar Override */
 .navbar {
   padding: 0rem 0 !important;
   transition: padding 0.3s ease !important;
@@ -223,8 +223,8 @@ header.scrolled {
   box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1) !important;
 }
 
-/* Dropdown menu */
-.dropdown-menu {
+/* Dropdown menu - Override Bootstrap */
+.dropdown-menu.header-dropdown-menu {
   border: none !important;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
   border-radius: 12px !important;
@@ -234,7 +234,7 @@ header.scrolled {
   backdrop-filter: blur(10px) !important;
   animation: dropdownFadeIn 0.3s ease !important;
 }
-.navbar .dropdown-menu {
+.navbar .dropdown-menu.header-dropdown-menu {
   top: 100% !important;
   margin-top: -5px !important;
 }
@@ -249,8 +249,8 @@ header.scrolled {
   }
 }
 
-/* Dropdown item */
-.dropdown-item {
+/* Dropdown item - Override Bootstrap */
+.dropdown-item.header-dropdown-item {
   padding: 0.7rem 1.5rem !important;
   transition: background-color 0.15s ease, color 0.15s ease, border 0.15s ease !important;
   color: #ffffff !important;
@@ -260,16 +260,16 @@ header.scrolled {
   backface-visibility: hidden !important;
   transform: translateZ(0) !important;
 }
-.dropdown-item:hover {
+.dropdown-item.header-dropdown-item:hover {
   background: rgba(255, 255, 255, 0.1) !important;
   color: #f0f0f0 !important;
   border: 1px solid rgba(255, 255, 255, 0.6) !important;
 }
 
 /* Reset focus/active states to prevent stuck hover effect */
-.dropdown-item:focus,
-.dropdown-item:active,
-.dropdown-item.active {
+.dropdown-item.header-dropdown-item:focus,
+.dropdown-item.header-dropdown-item:active,
+.dropdown-item.header-dropdown-item.active {
   background: transparent !important;
   color: #ffffff !important;
   border: none !important;
@@ -277,7 +277,7 @@ header.scrolled {
 }
 
 /* Ensure hover still works after clicking */
-.dropdown-item:hover {
+.dropdown-item.header-dropdown-item:hover {
   background: rgba(255, 255, 255, 0.1) !important;
   color: #f0f0f0 !important;
   border: 1px solid rgba(255, 255, 255, 0.6) !important;
@@ -328,7 +328,7 @@ header.scrolled {
   width: auto !important;
   max-width: 350px !important;
 }
-.search-container .form-control {
+.search-container .header-form-control {
   border: 2px solid rgba(255, 255, 255, 0.3) !important;
   border-radius: 25px !important;
   padding: 0.5rem 2.8rem 0.5rem 1rem !important;
@@ -337,7 +337,7 @@ header.scrolled {
   transition: all 0.3s ease !important;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
 }
-.search-container .form-control:focus {
+.search-container .header-form-control:focus {
   border-color: #ffffff !important;
   box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25),
     0 4px 12px rgba(0, 0, 0, 0.15) !important;
@@ -596,7 +596,7 @@ html {
   transform: translateY(25%) translateX(10%) !important;
 }
 
-.search-container .form-control {
+.search-container .header-form-control {
   min-width: 250px !important;
   flex-shrink: 0 !important;
   width: 250px !important;
@@ -605,11 +605,6 @@ html {
 
 /* Ensure header doesn't expand when dropdown is shown */
 .navbar {
-  overflow: visible !important;
-  width: 100% !important;
-}
-
-.container-fluid {
   overflow: visible !important;
   width: 100% !important;
 }
@@ -640,7 +635,7 @@ html {
 
 /* Responsive adjustments for search */
 @media (max-width: 768px) {
-  .search-container .form-control {
+  .search-container .header-form-control {
     min-width: 200px !important;
   }
 

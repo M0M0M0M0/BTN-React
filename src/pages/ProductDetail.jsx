@@ -335,7 +335,7 @@ export default function ProductDetail() {
                   MUA
                 </button>
                                  <button className="add-to-cart-btn" onClick={handleAddToCart}>
-                   <i className="fas fa-shopping-cart"></i> Add to Cart
+                   <i className="fas fa-shopping-cart"></i>
                  </button>
               </div>
             </div>

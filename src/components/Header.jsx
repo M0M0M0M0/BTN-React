@@ -110,55 +110,55 @@ export default function Header() {
               </li>
               <li className="nav-item dropdown">
                 <RippleLink className="nav-link dropdown-toggle" to="/product" id="productsDropdown">PRODUCTS</RippleLink>
-                <ul className="dropdown-menu">
-                  <li className="dropdown-submenu">
-                    <RippleAnchor className="dropdown-item dropdown-toggle" href="#">Fruits & Vegetables</RippleAnchor>
-                    <ul className="dropdown-menu">
-                      <li><RippleAnchor className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('fruits', e); }}>Fruits</RippleAnchor></li>
-                      <li><RippleAnchor className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('vegetables', e); }}>Vegetables</RippleAnchor></li>
-                      <li><RippleAnchor className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('all', e); }}>Organic Produce</RippleAnchor></li>
-                    </ul>
-                  </li>
-                  <li className="dropdown-submenu">
-                    <RippleAnchor className="dropdown-item dropdown-toggle" href="#">Juices & Dairy</RippleAnchor>
-                    <ul className="dropdown-menu">
-                      <li><RippleAnchor className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('juice', e); }}>Organic Juices</RippleAnchor></li>
-                      <li><RippleAnchor className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('dairy', e); }}>Fresh Dairy Products</RippleAnchor></li>
-                    </ul>
-                  </li>
-                  <li><RippleAnchor className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('processed-food', e); }}>Processed Food</RippleAnchor></li>
-                  <li><RippleAnchor className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('skin-care', e); }}>Skin Care</RippleAnchor></li>
-                </ul>
+                                 <ul className="dropdown-menu header-dropdown-menu">
+                   <li className="dropdown-submenu">
+                     <RippleAnchor className="dropdown-item header-dropdown-item dropdown-toggle" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('fruits', e); }}>Fruits & Vegetables</RippleAnchor>
+                     <ul className="dropdown-menu header-dropdown-menu">
+                       <li><RippleAnchor className="dropdown-item header-dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('fruits', e); }}>Fruits</RippleAnchor></li>
+                       <li><RippleAnchor className="dropdown-item header-dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('vegetables', e); }}>Vegetables</RippleAnchor></li>
+                       <li><RippleAnchor className="dropdown-item header-dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('all', e); }}>Organic Produce</RippleAnchor></li>
+                     </ul>
+                   </li>
+                   <li className="dropdown-submenu">
+                     <RippleAnchor className="dropdown-item header-dropdown-item dropdown-toggle" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('juice', e); }}>Juices & Dairy</RippleAnchor>
+                     <ul className="dropdown-menu header-dropdown-menu">
+                       <li><RippleAnchor className="dropdown-item header-dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('juice', e); }}>Organic Juices</RippleAnchor></li>
+                       <li><RippleAnchor className="dropdown-item header-dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('dairy', e); }}>Fresh Dairy Products</RippleAnchor></li>
+                     </ul>
+                   </li>
+                   <li><RippleAnchor className="dropdown-item header-dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('processed-food', e); }}>Processed Food</RippleAnchor></li>
+                   <li><RippleAnchor className="dropdown-item header-dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('skin-care', e); }}>Skin Care</RippleAnchor></li>
+                 </ul>
               </li>
-              <li className="nav-item dropdown">
-                <RippleLink className="nav-link dropdown-toggle" to="/offers" id="offersDropdown">SPECIAL OFFERS</RippleLink>
-                <ul className="dropdown-menu">
-                  <li><RippleAnchor className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('weekly', e); }}>Weekly Discounts</RippleAnchor></li>
-                  <li><RippleAnchor className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('bogo', e); }}>Buy 1 Get 1 Free</RippleAnchor></li>
-                  <li><RippleAnchor className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('seasonal', e); }}>Seasonal Bundles</RippleAnchor></li>
-                  <li><RippleAnchor className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('clearance', e); }}>Clearance Sale</RippleAnchor></li>
-                  <li><RippleAnchor className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('gift', e); }}>Gift Vouchers</RippleAnchor></li>
-                </ul>
-              </li>
-              <li className="nav-item dropdown">
-                <RippleAnchor className="nav-link dropdown-toggle" href="#" id="aboutDropdown">ABOUT US</RippleAnchor>
-                <ul className="dropdown-menu">
-                  <li><RippleAnchor className="dropdown-item" href="#">Our Story</RippleAnchor></li>
-                  <li><RippleAnchor className="dropdown-item" href="#">Farming Practices</RippleAnchor></li>
-                  <li><RippleAnchor className="dropdown-item" href="#">Meet the Farmers</RippleAnchor></li>
-                  <li><RippleAnchor className="dropdown-item" href="#">Quality & Safety Standards</RippleAnchor></li>
-                  <li><RippleAnchor className="dropdown-item" href="#">Careers</RippleAnchor></li>
-                </ul>
-              </li>
-              <li className="nav-item dropdown">
-                <RippleLink className="nav-link dropdown-toggle" to="/blog" id="blogDropdown">BLOG</RippleLink>
-                <ul className="dropdown-menu">
-                  <li><RippleAnchor className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); navigate('/blog?category=tips'); }}>Healthy Eating Tips</RippleAnchor></li>
-                  <li><RippleAnchor className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); navigate('/blog?category=recipes'); }}>Easy Recipes</RippleAnchor></li>
-                  <li><RippleAnchor className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); navigate('/blog?category=guides'); }}>Seasonal Food Guides</RippleAnchor></li>
-                  <li><RippleAnchor className="dropdown-item" href="#" onClick={(e) => { e.preventDefault(); navigate('/blog?category=stories'); }}>Customer Stories</RippleAnchor></li>
-                </ul>
-              </li>
+                             <li className="nav-item dropdown">
+                 <RippleLink className="nav-link dropdown-toggle" to="/offers" id="offersDropdown">SPECIAL OFFERS</RippleLink>
+                 <ul className="dropdown-menu header-dropdown-menu">
+                   <li><RippleAnchor className="dropdown-item header-dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('weekly', e); }}>Weekly Discounts</RippleAnchor></li>
+                   <li><RippleAnchor className="dropdown-item header-dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('bogo', e); }}>Buy 1 Get 1 Free</RippleAnchor></li>
+                   <li><RippleAnchor className="dropdown-item header-dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('seasonal', e); }}>Seasonal Bundles</RippleAnchor></li>
+                   <li><RippleAnchor className="dropdown-item header-dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('clearance', e); }}>Clearance Sale</RippleAnchor></li>
+                   <li><RippleAnchor className="dropdown-item header-dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('gift', e); }}>Gift Vouchers</RippleAnchor></li>
+                 </ul>
+               </li>
+                             <li className="nav-item dropdown">
+                 <RippleAnchor className="nav-link dropdown-toggle" href="#" id="aboutDropdown">ABOUT US</RippleAnchor>
+                 <ul className="dropdown-menu header-dropdown-menu">
+                   <li><RippleAnchor className="dropdown-item header-dropdown-item" href="#">Our Story</RippleAnchor></li>
+                   <li><RippleAnchor className="dropdown-item header-dropdown-item" href="#">Farming Practices</RippleAnchor></li>
+                   <li><RippleAnchor className="dropdown-item header-dropdown-item" href="#">Meet the Farmers</RippleAnchor></li>
+                   <li><RippleAnchor className="dropdown-item header-dropdown-item" href="#">Quality & Safety Standards</RippleAnchor></li>
+                   <li><RippleAnchor className="dropdown-item header-dropdown-item" href="#">Careers</RippleAnchor></li>
+                 </ul>
+               </li>
+                             <li className="nav-item dropdown">
+                 <RippleLink className="nav-link dropdown-toggle" to="/blog" id="blogDropdown">BLOG</RippleLink>
+                 <ul className="dropdown-menu header-dropdown-menu">
+                   <li><RippleAnchor className="dropdown-item header-dropdown-item" href="#" onClick={(e) => { e.preventDefault(); navigate('/blog?category=tips'); }}>Healthy Eating Tips</RippleAnchor></li>
+                   <li><RippleAnchor className="dropdown-item header-dropdown-item" href="#" onClick={(e) => { e.preventDefault(); navigate('/blog?category=recipes'); }}>Easy Recipes</RippleAnchor></li>
+                   <li><RippleAnchor className="dropdown-item header-dropdown-item" href="#" onClick={(e) => { e.preventDefault(); navigate('/blog?category=guides'); }}>Seasonal Food Guides</RippleAnchor></li>
+                   <li><RippleAnchor className="dropdown-item header-dropdown-item" href="#" onClick={(e) => { e.preventDefault(); navigate('/blog?category=stories'); }}>Customer Stories</RippleAnchor></li>
+                 </ul>
+               </li>
               <li className="nav-item"><RippleAnchor className="nav-link" href="#">CONTACT</RippleAnchor></li>
             </ul>
           </div>
@@ -166,17 +166,17 @@ export default function Header() {
           <div className="d-flex flex-column align-items-end ms-auto search-cart-container">
             <div className="d-flex align-items-center position-relative" ref={searchRef}>
               <div className="search-container position-relative me-3">
-                <input 
-                  className="form-control" 
-                  type="search" 
-                  placeholder="Search products..." 
-                  aria-label="Search"
-                  value={searchTerm}
-                  onChange={handleSearch}
-                  onKeyPress={handleKeyPress}
-                />
+                                 <input 
+                   className="form-control header-form-control" 
+                   type="search" 
+                   placeholder="Search products..." 
+                   aria-label="Search"
+                   value={searchTerm}
+                   onChange={handleSearch}
+                   onKeyPress={handleKeyPress}
+                 />
                 <RippleButton 
-                  className="btn search-btn position-absolute" 
+                  className="header-btn search-btn position-absolute" 
                   type="button"
                   onClick={() => {
                     if (searchResults.length > 0) {
