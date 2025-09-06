@@ -3,7 +3,9 @@ import { useState, useEffect, useRef } from 'react'
 import RippleButton from './RippleButton'
 import RippleLink from './RippleLink'
 import RippleAnchor from './RippleAnchor'
-// page-level CSS is linked globally via index.html
+import Login from './Login'
+import Register from './Register'
+import '../../public/css/header.css'
 
 export default function Header() {
   const navigate = useNavigate();
@@ -248,7 +250,7 @@ export default function Header() {
               </RippleAnchor>
             </div>
             <div className="auth-links">
-              <RippleAnchor href="#">Login</RippleAnchor> / <RippleAnchor href="#">Register</RippleAnchor>
+              <Login /> / <Register />
             </div>
           </div>
         </div>

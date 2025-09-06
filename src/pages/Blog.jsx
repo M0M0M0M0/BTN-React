@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-// CSS files are now imported globally in App.jsx
+import '../../public/css/blog.css'
 
 export default function Blog() {
   const [activeCategory, setActiveCategory] = useState('all')

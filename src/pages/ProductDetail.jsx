@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
-// CSS files are now imported globally in App.jsx
+import '../../public/css/product-detail.css'
 
 export default function ProductDetail() {
   const { id } = useParams()
@@ -116,7 +116,7 @@ export default function ProductDetail() {
         </div>
 
         {/* Product Detail Section */}
-        <div className="product-detail-container">
+        <div className="product-detail product-detail-container">
           {/* Left Column - Product Images & Info */}
           <div className="product-images-section">
             {/* Main Product Image */}

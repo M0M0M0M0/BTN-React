@@ -316,7 +316,7 @@ header.scrolled {
     display: block !important;
     top: 0 !important;
     left: 100% !important;
-    margin-left: 0.1rem !important;
+    margin-left: 0rem !important;
   }
 }
 

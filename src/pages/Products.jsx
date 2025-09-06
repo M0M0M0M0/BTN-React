@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
-// CSS files are now imported globally in App.jsx
+import '../../public/css/product-list.css'
 
 const CATEGORIES = ['all','fruits','vegetables','juice','dairy','processed-food','skin-care']
 

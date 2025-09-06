@@ -1,4 +1,4 @@
-// page-level CSS is linked globally via index.html
+import '../../public/css/FileFooter.css'
 import Example from './Email';
 
 export default function Footer() {

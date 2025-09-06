@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
-// CSS files are now imported globally in App.jsx
+import '../../public/css/offers.css'
 
 function useCountdown(msFromNow) {
   const [t, setT] = useState({ d: '00', h: '00', m: '00', s: '00' })
