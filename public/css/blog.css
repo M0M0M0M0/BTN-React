@@ -445,14 +445,14 @@ body {
 }
 
 /* Loading Animation */
-.loading {
+.blog-loading {
   display: none;
   text-align: center;
   padding: 60px 0;
   color: var(--text-light);
 }
 
-.loading.show {
+.blog-loading.show {
   display: block;
 }
 

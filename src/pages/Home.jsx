@@ -5,7 +5,7 @@ import '../../public/css/content3.css'
 
 export default function Home() {
   return (
-    <main className="section main">
+    <main className="section main layout-section">
       <div className="hero">
         <div className="hero-content">
           <h5>ORGANE FARM</h5>

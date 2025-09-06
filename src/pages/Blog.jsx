@@ -71,7 +71,7 @@ export default function Blog() {
 
           <div className="row">
             <div className="col-lg-8">
-              <div id="loading" className="loading" style={{ display: 'none' }}>
+              <div id="loading" className="loading blog-loading" style={{ display: 'none' }}>
                 <div className="spinner"></div>
                 <p>Loading blog posts...</p>
               </div>

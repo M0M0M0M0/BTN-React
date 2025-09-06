@@ -697,15 +697,15 @@
 }
 
 /* Loading & Error States */
-.loading,
-.error {
+.product-detail-loading,
+.product-detail-error {
   text-align: center;
   padding: 3rem;
   font-size: 1.2rem;
   color: #666;
 }
 
-.error {
+.product-detail-error {
   color: #e74c3c;
 }
 

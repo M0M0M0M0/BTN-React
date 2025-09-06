@@ -46,7 +46,7 @@ export default function Products() {
 
 
   return (
-    <main className="section main">
+    <main className="section main layout-section">
       <section className="products-hero">
         <div>
           <h1>Our Products</h1>
@@ -55,7 +55,7 @@ export default function Products() {
       </section>
       <section className="product-section">
         <div className="container">
-          <div className="filters">
+          <div className="filters home-filters">
             {CATEGORIES.map(c => (
               <button key={c} className={category===c? 'active' : ''} onClick={() => handleCategoryChange(c)}>
                 {c.toUpperCase()}
@@ -63,9 +63,9 @@ export default function Products() {
             ))}
           </div>
 
-          <div id="productGrid" className="product-grid">
+          <div id="productGrid" className="product-grid home-product-grid">
             {filteredProducts.map(p => (
-                <div key={p.id} className="product-card">
+                <div key={p.id} className="product-card home-product-card">
                   {p.discount && p.discount > 0 ? <div className="discount-badge">-{p.discount}%</div> : null}
                   <Link to={`/product/${p.id}`} className="product-image-link">
                     <img src={`./images/organic-img/${p.name.toLowerCase().replace(/\s+/g,'-')}.jpg`} alt={p.name} />

@@ -20,7 +20,7 @@ p {
   margin-bottom: 10px;
 }
 /* Layout */
-.section {
+.layout-section {
   float: left;
   width: 100%;
 }

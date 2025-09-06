@@ -106,7 +106,7 @@ export default function ProductDetail() {
   ]
 
   return (
-    <main className="section main">
+    <main className="section main layout-section">
       <div className="container">
         {/* Breadcrumb */}
         <div className="breadcrumb-section">
