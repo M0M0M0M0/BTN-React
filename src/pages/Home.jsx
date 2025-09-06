@@ -36,7 +36,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="product-section">
+      <section className="product-section content1-product-section">
         <div className="transition-section1"></div>
         <div className="product-section-menu">
           <div className="title">
@@ -167,7 +167,7 @@ export default function Home() {
         <p className="author"><strong>CA SỸ LAM TRƯỜNG</strong></p>
       </section>
       <div className="transition-section2"></div>
-      <section className="blog-section">
+      <section className="blog-section content3-blog-section">
         <div className="blog-container">
           <div className="blog-post">
             <img src="./images/a1.jpg" />

@@ -207,6 +207,8 @@
   box-sizing: border-box !important;
   line-height: 1 !important;
   font-family: inherit !important;
+  flex: 0 0 44px !important;
+  overflow: hidden !important;
 }
 
 .add-to-cart-btn:hover {
@@ -224,16 +226,6 @@
   text-overflow: ellipsis;
   max-width: 100%;
   flex-shrink: 0;
-}
-
-/* Force consistent button dimensions */
-.add-to-cart-btn {
-  box-sizing: border-box !important;
-  height: 44px !important;
-  min-height: 44px !important;
-  max-height: 44px !important;
-  width: 100% !important;
-  flex: 0 0 44px !important;
 }
 
 .product-description {
@@ -324,13 +316,4 @@
     max-height: 40px !important;
     flex: 0 0 40px !important;
   }
-}
-
-/* Global button size enforcement */
-.add-to-cart-btn {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  box-sizing: border-box !important;
-  overflow: hidden !important;
 }

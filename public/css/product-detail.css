@@ -417,7 +417,7 @@
   transform: translateY(30px);
 }
 
-.discount-badge {
+.product-detail-discount-badge {
   background: #e74c3c;
   color: white;
   padding: 0.3rem 0.8rem;

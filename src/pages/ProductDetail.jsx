@@ -288,7 +288,7 @@ export default function ProductDetail() {
                {product.discount > 0 && product.originalPrice ? (
                  <>
                    <div className="original-price">{formatPrice(product.originalPrice)}</div>
-                   <div className="discount-badge">-{product.discount}%</div>
+                   <div className="discount-badge product-detail-discount-badge">-{product.discount}%</div>
                  </>
                ) : null}
              </div>
