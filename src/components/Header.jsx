@@ -95,9 +95,9 @@ export default function Header() {
   }, []);
   return (
     <header>
-      <nav className="navbar navbar-expand-lg navbar-light py-3 position-relative">
+      <nav className="navbar navbar-expand-lg navbar-light py-3 position-relative header-navbar">
         <div className="container-fluid">
-          <RippleLink className="navbar-brand" to="/">
+          <RippleLink className="navbar-brand header-navbar-brand" to="/">
             <img src="./img/logo/logo.png" alt="Logo" height="50" />
           </RippleLink>
 
@@ -108,10 +108,10 @@ export default function Header() {
           <div className="collapse navbar-collapse justify-content-center position-absolute top-50 start-50 translate-middle" id="mainNavbar">
             <ul className="navbar-nav mb-2 mb-lg-0">
               <li className="nav-item">
-                <RippleLink className="nav-link" to="/">HOME</RippleLink>
+                <RippleLink className="nav-link header-nav-link" to="/">HOME</RippleLink>
               </li>
               <li className="nav-item dropdown">
-                <RippleLink className="nav-link dropdown-toggle" to="/product" id="productsDropdown">PRODUCTS</RippleLink>
+                <RippleLink className="nav-link dropdown-toggle header-nav-link" to="/product" id="productsDropdown">PRODUCTS</RippleLink>
                                  <ul className="dropdown-menu header-dropdown-menu">
                    <li className="dropdown-submenu">
                      <RippleAnchor className="dropdown-item header-dropdown-item dropdown-toggle" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('fruits', e); }}>Fruits & Vegetables</RippleAnchor>
@@ -133,7 +133,7 @@ export default function Header() {
                  </ul>
               </li>
                              <li className="nav-item dropdown">
-                 <RippleLink className="nav-link dropdown-toggle" to="/offers" id="offersDropdown">SPECIAL OFFERS</RippleLink>
+                 <RippleLink className="nav-link dropdown-toggle header-nav-link" to="/offers" id="offersDropdown">SPECIAL OFFERS</RippleLink>
                  <ul className="dropdown-menu header-dropdown-menu">
                    <li><RippleAnchor className="dropdown-item header-dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('weekly', e); }}>Weekly Discounts</RippleAnchor></li>
                    <li><RippleAnchor className="dropdown-item header-dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('bogo', e); }}>Buy 1 Get 1 Free</RippleAnchor></li>
@@ -143,7 +143,7 @@ export default function Header() {
                  </ul>
                </li>
                              <li className="nav-item dropdown">
-                 <RippleAnchor className="nav-link dropdown-toggle" href="#" id="aboutDropdown">ABOUT US</RippleAnchor>
+                 <RippleAnchor className="nav-link dropdown-toggle header-nav-link" href="#" id="aboutDropdown">ABOUT US</RippleAnchor>
                  <ul className="dropdown-menu header-dropdown-menu">
                    <li><RippleAnchor className="dropdown-item header-dropdown-item" href="#">Our Story</RippleAnchor></li>
                    <li><RippleAnchor className="dropdown-item header-dropdown-item" href="#">Farming Practices</RippleAnchor></li>
@@ -153,7 +153,7 @@ export default function Header() {
                  </ul>
                </li>
                              <li className="nav-item dropdown">
-                 <RippleLink className="nav-link dropdown-toggle" to="/blog" id="blogDropdown">BLOG</RippleLink>
+                 <RippleLink className="nav-link dropdown-toggle header-nav-link" to="/blog" id="blogDropdown">BLOG</RippleLink>
                  <ul className="dropdown-menu header-dropdown-menu">
                    <li><RippleAnchor className="dropdown-item header-dropdown-item" href="#" onClick={(e) => { e.preventDefault(); navigate('/blog?category=tips'); }}>Healthy Eating Tips</RippleAnchor></li>
                    <li><RippleAnchor className="dropdown-item header-dropdown-item" href="#" onClick={(e) => { e.preventDefault(); navigate('/blog?category=recipes'); }}>Easy Recipes</RippleAnchor></li>
@@ -161,7 +161,7 @@ export default function Header() {
                    <li><RippleAnchor className="dropdown-item header-dropdown-item" href="#" onClick={(e) => { e.preventDefault(); navigate('/blog?category=stories'); }}>Customer Stories</RippleAnchor></li>
                  </ul>
                </li>
-              <li className="nav-item"><RippleAnchor className="nav-link" href="#">CONTACT</RippleAnchor></li>
+              <li className="nav-item"><RippleAnchor className="nav-link header-nav-link" href="#">CONTACT</RippleAnchor></li>
             </ul>
           </div>
 

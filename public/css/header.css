@@ -63,7 +63,7 @@
 
 /* Ripple effect for nav-links */
 .nav-link.ripple-link,
-.nav-link {
+.header-nav-link {
   position: relative !important;
   overflow: hidden !important;
 }
@@ -74,7 +74,7 @@
 
 /* Ripple effect for dropdown items */
 .dropdown-item.ripple-link,
-.dropdown-item {
+.header-dropdown-item {
   position: relative !important;
   overflow: hidden !important;
 }
@@ -121,7 +121,7 @@
 
 /* Ensure navbar brand has ripple effect */
 .navbar-brand.ripple-link,
-.navbar-brand {
+.header-navbar-brand {
   position: relative !important;
   overflow: hidden !important;
 }
@@ -147,12 +147,12 @@ header.scrolled {
 }
 
 /* Bootstrap Navbar Override */
-.navbar {
+.header-navbar {
   padding: 0rem 0 !important;
   transition: padding 0.3s ease !important;
   border-bottom: none !important;
 }
-.navbar .nav-link {
+.navbar .header-nav-link {
   padding: 0.8rem 1rem !important;
   margin: 0 0.2rem !important;
 }
@@ -162,7 +162,7 @@ header.scrolled {
 }
 
 /* Logo */
-.navbar-brand {
+.header-navbar-brand {
   transition: transform 0.2s ease !important;
   will-change: transform !important;
   backface-visibility: hidden !important;
@@ -180,7 +180,7 @@ header.scrolled {
 }
 
 /* Navigation links */
-.nav-link {
+.header-nav-link {
   font-family: "Roboto", sans-serif !important;
   font-weight: 600 !important;
   color: #ffffff !important;
@@ -197,7 +197,7 @@ header.scrolled {
   backface-visibility: hidden !important;
   transform: translateZ(0) !important;
 }
-.nav-link::before {
+.header-nav-link::before {
   content: "";
   position: absolute !important;
   top: 0 !important;
@@ -213,10 +213,10 @@ header.scrolled {
   transition: left 0.3s ease !important;
   pointer-events: none !important;
 }
-.nav-link:hover::before {
+.header-nav-link:hover::before {
   left: 100% !important;
 }
-.nav-link:hover {
+.header-nav-link:hover {
   background-color: rgba(255, 255, 255, 0.1) !important;
   color: #f0f0f0 !important;
   transform: translateY(-1px) !important;
@@ -435,7 +435,7 @@ header.scrolled {
     margin-top: 1rem !important;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3) !important;
   }
-  .nav-link {
+  .header-nav-link {
     margin: 0.2rem 0 !important;
   }
 }
@@ -604,7 +604,7 @@ html {
 }
 
 /* Ensure header doesn't expand when dropdown is shown */
-.navbar {
+.header-navbar {
   overflow: visible !important;
   width: 100% !important;
 }
