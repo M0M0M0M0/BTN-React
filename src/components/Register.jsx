@@ -10,7 +10,7 @@ function Register() {
 
   return (
     <>
-      <a 
+      <a
         href="#"
         onClick={(e) => {
           e.preventDefault();
@@ -21,18 +21,17 @@ function Register() {
       >
         Register
       </a>
-
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Register</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
+        <Modal.Body>Register form will be here!</Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
           <Button variant="primary" onClick={handleClose}>
-            Save Changes
+            Register
           </Button>
         </Modal.Footer>
       </Modal>

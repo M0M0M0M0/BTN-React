@@ -10,7 +10,7 @@ function Login() {
 
   return (
     <>
-      <a 
+      <a
         href="#"
         onClick={(e) => {
           e.preventDefault();
@@ -21,7 +21,6 @@ function Login() {
       >
         Login
       </a>
-
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Modal heading</Modal.Title>
