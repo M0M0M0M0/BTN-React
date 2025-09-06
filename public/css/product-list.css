@@ -188,7 +188,7 @@
 
 .discount-badge {
   position: absolute;
-  top: 15px;
+  top: -5px;
   left: 15px;
   background: #e74c3c;
   color: white;
@@ -204,7 +204,7 @@
 }
 
 .product-card:hover .discount-badge {
-  transform: translateZ(0) scale(1.05);
+  /* transform: translateZ(0) scale(1.05); */
   box-shadow: 0 4px 12px rgba(231, 76, 60, 0.4);
 }
 
