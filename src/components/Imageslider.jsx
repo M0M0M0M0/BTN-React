@@ -10,7 +10,7 @@ const slides = [
     buttonText: "SHOP NOW"
   },
   {
-    image: "./images/specialoffer.jpg",
+    image: "./images/newoffer.jpg",
     text: "Want to save your poket, get yourself a deal up to 50% directly from our farm.",
     link: "/offers",
     buttonText: "SEE FOR YOURSELF"
