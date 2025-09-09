@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import '../../public/css/content1.css'
 import '../../public/css/content2.css'
 import '../../public/css/content3.css'
+import ImageSlider from '../components/Imageslider'
 
 export default function Home() {
   return (
@@ -40,58 +41,11 @@ export default function Home() {
         <div className="transition-section1"></div>
         <div className="product-section-menu">
           <div className="title">
-            <h2>NEW PRODUCTS</h2>
-            <p><em>- Featured products -</em></p>
-          </div>
-          <div className="home-filters">
-            <button className="active" data-category="all">ALL</button>
-            <button data-category="fruits">FRUITS</button>
-            <button data-category="vegetables">VEGETABLES</button>
-            <button data-category="juice">JUICE</button>
-            <button data-category="dairy">DAIRY</button>
-            <button data-category="processed-food">PROCESSED FOOD</button>
-            <button data-category="skin-care">SKIN CARE</button>
+            <h2>WHAT TO LOOK OUT FOR</h2>
+            <p><em>- All new deals of the day -</em></p>
           </div>
         </div>
-        <div className="transition-section2"></div>
-        <div className="home-product-grid container">
-          <div className="home-product-card">
-            <div className="heart">♥</div>
-            <img src="./images/anhrauma.jpg" alt="Gotu Kola" />
-            <h4>Gotu Kola</h4>
-            <p>36.000Đ</p>
-          </div>
-          <div className="home-product-card">
-            <div className="heart">♥</div>
-            <img src="./images/anhbapcai.jpg" alt="Cabbage" />
-            <h4>Cabbage</h4>
-            <p>15.000Đ</p>
-          </div>
-          <div className="home-product-card">
-            <div className="heart">♥</div>
-            <img src="./images/anhkhoailang.jpg" alt="Sweet Potato" />
-            <h4>Sweet Potato</h4>
-            <p>20.000Đ</p>
-          </div>
-          <div className="home-product-card">
-            <div className="heart">♥</div>
-            <img src="./images/anhcafe.jpg" alt="Coffee" />
-            <h4>Coffee</h4>
-            <p>15.000Đ</p>
-          </div>
-          <div className="home-product-card">
-            <div className="heart">♥</div>
-            <img src="./images/anhchanleo.jpg" alt="Passion Fruit" />
-            <h4>Passion Fruit</h4>
-            <p>35.000Đ</p>
-          </div>
-          <div className="home-product-card">
-            <div className="heart">♥</div>
-            <img src="./images/anhduahau.jpg" alt="Watermelon" />
-            <h4>Wartermelon</h4>
-            <p>45.000Đ</p>
-          </div>
-        </div>
+        <ImageSlider width='80%' height='800px'/>
       </section>
 
       <div className="transition-section1"></div>
