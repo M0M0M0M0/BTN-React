@@ -3,6 +3,41 @@ import { Link } from 'react-router-dom'
 import { useCart } from '../contexts/CartContext'
 import '../../public/css/cart.css'
 
+// Component for handling product images
+function ProductImage({ item }) {
+  const getImageSrc = () => {
+    // If item has image property (from Offers), use it directly
+    if (item.image && (item.image.startsWith('./images/') || item.image.startsWith('/images/'))) {
+      console.log('Using offer image:', item.image, 'for item:', item.name)
+      return item.image
+    }
+    
+    // Generate path from product name for Products page items
+    const imageName = item.name.toLowerCase()
+      .replace(/[^a-z0-9\s]/g, '') // Remove special characters
+      .replace(/\s+/g, '-') // Replace spaces with hyphens
+    const generatedPath = `./images/organic-img/${imageName}.jpg`
+    console.log('Generated image path:', generatedPath, 'for item:', item.name)
+    return generatedPath
+  }
+  
+  const handleError = (e) => {
+    console.error('Image failed to load:', e.target.src, 'for item:', item.name)
+  }
+  
+  const imageSrc = getImageSrc()
+  
+  return (
+    <img 
+      src={imageSrc} 
+      alt={item.name}
+      onError={handleError}
+      data-src={imageSrc}
+      title={`Image source: ${imageSrc}`}
+    />
+  )
+}
+
 export default function Cart() {
   const { cartItems, updateQuantity, removeFromCart, clearCart } = useCart()
   const [isLoading, setIsLoading] = useState(false)
@@ -96,17 +131,12 @@ export default function Cart() {
                 {cartItems.map(item => (
                   <div key={item.id} className="cart-item">
                     <div className="cart-item-image">
-                      <img 
-                        src={`./images/organic-img/${item.name.toLowerCase().replace(/\s+/g,'-')}.jpg`} 
-                        alt={item.name}
-                        onError={(e) => {
-                          e.target.src = './images/placeholder.jpg'
-                        }}
-                      />
+                      <ProductImage item={item} />
                     </div>
                     
                     <div className="cart-item-details">
                       <h4>{item.name}</h4>
+                      
                     </div>
 
                     <div className="cart-item-price">
