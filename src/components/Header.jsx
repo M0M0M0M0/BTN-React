@@ -61,7 +61,7 @@ export default function Header() {
     setSearchTerm(product.name);
     setShowResults(false);
     // Navigate to product page or add to cart
-    console.log('Selected product:', product);
+    navigate(`/product/${product.id}`);
   };
 
   // Handle category navigation
@@ -204,7 +204,7 @@ export default function Header() {
                     >
                            <div className="search-result-image">
                           <img 
-                            src={`/images/organic-img/${product.name.toLowerCase().replace(/\s+/g,'-')}.jpg`} 
+                            src={`public/images/organic-img/${product.name.toLowerCase().replace(/\s+/g,'-')}.jpg`} 
                             alt={product.name}
                             onError={(e) => {
                               e.target.style.display = 'none';
