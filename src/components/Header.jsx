@@ -3,8 +3,7 @@ import { useState, useEffect, useRef } from 'react'
 import RippleButton from './RippleButton'
 import RippleLink from './RippleLink'
 import RippleAnchor from './RippleAnchor'
-import Login from './Login'
-import Register from './Register'
+import AuthWrapper from './AuthWrapper'
 import '../../public/css/header.css'
 
 export default function Header() {
@@ -250,7 +249,7 @@ export default function Header() {
               </RippleAnchor>
             </div>
             <div className="auth-links">
-              <Login /> / <Register />
+              <AuthWrapper />
             </div>
           </div>
         </div>

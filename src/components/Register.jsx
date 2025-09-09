@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { useState, forwardRef, useImperativeHandle } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import Alert from 'react-bootstrap/Alert';
 
-function Register() {
+const Register = forwardRef(({ onSwitchToLogin }, ref) => {
   const [show, setShow] = useState(false);
   const [formData, setFormData] = useState({
     firstName: '',
@@ -32,7 +32,28 @@ function Register() {
     setErrors({});
   };
 
+  const handleSwitchToLogin = () => {
+    setShow(false);
+    setFormData({
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: '',
+      password: '',
+      confirmPassword: '',
+      agreeTerms: false
+    });
+    setErrors({});
+    if (onSwitchToLogin) {
+      onSwitchToLogin();
+    }
+  };
+
   const handleShow = () => setShow(true);
+
+  useImperativeHandle(ref, () => ({
+    setShow: (value) => setShow(value)
+  }));
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -292,7 +313,10 @@ function Register() {
         <Modal.Footer className="justify-content-center">
           <small className="text-muted">
             Already have an account?{' '}
-            <a href="#" className="text-success fw-bold">
+            <a href="#" className="text-success fw-bold" onClick={(e) => {
+              e.preventDefault();
+              handleSwitchToLogin();
+            }}>
               Login here
             </a>
           </small>
@@ -300,6 +324,6 @@ function Register() {
       </Modal>
     </>
   );
-}
+});
 
 export default Register;
