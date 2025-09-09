@@ -287,7 +287,7 @@ html {
 
 .footer-col h3 {
   font-family: "Playfair Display", serif;
-  font-size: 14px;
+  font-size: 21px;
   color: #333;
   margin-bottom: 25px;
   font-weight: 700;
@@ -300,7 +300,7 @@ html {
 .footer-col ul li {
   margin-bottom: 12px;
   color: #666;
-  font-size: 12px;
+  font-size: 17px;
   display: flex;
   align-items: center;
 }
@@ -308,7 +308,7 @@ html {
 .footer-col ul li i {
   margin-right: 10px;
   color: #8cc63f;
-  font-size: 16px;
+  font-size: 21px;
 }
 
 .footer-col ul li a {
@@ -331,12 +331,12 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 38px;
-  height: 38px;
+  width: 48px;
+  height: 48px;
   border: 1px solid #ccc;
   border-radius: 50%;
   color: #666;
-  font-size: 16px;
+  font-size: 21px;
   transition: all 0.3s ease;
   text-decoration: none;
 }
@@ -427,7 +427,7 @@ html {
     padding: 40px 15px;
   }
   .footer-col h3 {
-    font-size: 16px;
+    font-size: 23px;
   }
 
   /* Modal responsive */
