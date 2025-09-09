@@ -13,6 +13,7 @@ import Offers from './pages/Offers.jsx'
 import Blog from './pages/Blog.jsx'
 import AboutUs from './pages/AboutUs.jsx'
 import Cart from './pages/Cart.jsx'
+import BundleBuilder from './pages/BundleBuilder.jsx'
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/bundle-builder/:bundleType" element={<BundleBuilder />} />
         <Route path="*" element={<div style={{ padding: 24 }}>Not Found. <Link to="/">Go Home</Link></div>} />
       </Routes>
       <Footer />

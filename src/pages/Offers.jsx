@@ -345,12 +345,9 @@ export default function Offers() {
                 <div className="bundle-price">$45.99</div>
                 <button 
                   className="claim-offer-btn"
-                  onClick={() => {
-                    const familyPack = offers.find(offer => offer.name === "Family Pack")
-                    if (familyPack) handleAddToCart(familyPack)
-                  }}
+                  onClick={() => navigate('/bundle-builder/family-pack')}
                 >
-                  <i className="fas fa-shopping-cart"></i> Add to Cart
+                  <i className="fas fa-shopping-cart"></i> Build Your Pack
                 </button>
               </div>
             </div>
