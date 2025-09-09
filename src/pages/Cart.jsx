@@ -70,11 +70,11 @@ export default function Cart() {
             <div className="empty-cart-icon">
               <i className="fas fa-shopping-cart"></i>
             </div>
-            <h2>Giỏ hàng trống</h2>
-            <p>Bạn chưa có sản phẩm nào trong giỏ hàng</p>
+            <h2>Your Cart is Empty</h2>
+            <p>You don't have any items in your cart yet</p>
             <Link to="/product" className="btn btn-success btn-lg">
               <i className="fas fa-shopping-bag me-2"></i>
-              Tiếp tục mua sắm
+              Start Shopping
             </Link>
           </div>
         ) : (
@@ -82,7 +82,7 @@ export default function Cart() {
             {/* Cart Items */}
             <div className="cart-items">
               <div className="cart-header">
-                <h2>Sản phẩm trong giỏ hàng ({cartItems.length} sản phẩm)</h2>
+                <h2>Items in Cart ({cartItems.length} items)</h2>
                 <button 
                   className="btn btn-outline-danger btn-sm"
                   onClick={clearCart}
@@ -157,22 +157,22 @@ export default function Cart() {
             {/* Cart Summary */}
             <div className="cart-summary">
               <div className="summary-card">
-                <h3>Tóm tắt đơn hàng</h3>
+                <h3>Order Summary</h3>
                 
                 <div className="summary-row">
-                  <span>Tạm tính:</span>
+                  <span>Subtotal:</span>
                   <span>{formatPrice(calculateSubtotal())}</span>
                 </div>
                 
                 <div className="summary-row">
-                  <span>Thuế (10%):</span>
+                  <span>Tax (10%):</span>
                   <span>{formatPrice(calculateTax())}</span>
                 </div>
                 
                 <hr />
                 
                 <div className="summary-row total">
-                  <span>Tổng cộng:</span>
+                  <span>Total:</span>
                   <span>{formatPrice(calculateTotal())}</span>
                 </div>
 
