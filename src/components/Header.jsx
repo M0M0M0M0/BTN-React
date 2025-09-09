@@ -4,10 +4,12 @@ import RippleButton from './RippleButton'
 import RippleLink from './RippleLink'
 import RippleAnchor from './RippleAnchor'
 import AuthWrapper from './AuthWrapper'
+import { useCart } from '../contexts/CartContext'
 import '../../public/css/header.css'
 
 export default function Header() {
   const navigate = useNavigate();
+  const { getCartItemCount } = useCart();
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [showResults, setShowResults] = useState(false);
@@ -243,10 +245,12 @@ export default function Header() {
                   <div className="no-results">No products found</div>
                 </div>
               )}
-              <RippleAnchor href="#" className="cart-link position-relative">
+              <RippleLink to="/cart" className="cart-link position-relative">
                 <i className="fas fa-shopping-cart" style={{ fontSize: '1.5rem', color: 'rgb(222, 223, 224)' }}></i>
-                <span className="cart-badge position-absolute top-0 start-100 translate-middle badge rounded-pill">3</span>
-              </RippleAnchor>
+                <span className="cart-badge position-absolute top-0 start-100 translate-middle badge rounded-pill">
+                  {getCartItemCount()}
+                </span>
+              </RippleLink>
             </div>
             <div className="auth-links">
               <AuthWrapper />

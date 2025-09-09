@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
+import { useCart } from '../contexts/CartContext'
 import '../../public/css/product-list.css'
 
 const CATEGORIES = ['all','fruits','vegetables','juice','dairy','processed-food','skin-care']
 
 export default function Products() {
+  const { addToCart } = useCart()
   const [products, setProducts] = useState([])
   const [searchTerm, setSearchTerm] = useState('')
   const [category, setCategory] = useState('all')
@@ -86,9 +88,12 @@ export default function Products() {
                       )}
                       <span className="product-quantity">/ {p.quantity}</span>
                     </div>
-                    <Link to={`/product/${p.id}`} className="add-to-cart-btn">
+                    <button 
+                      className="add-to-cart-btn"
+                      onClick={() => addToCart(p)}
+                    >
                       <i className="fas fa-shopping-cart"></i> Add to Cart
-                    </Link>
+                    </button>
                   </div>
                 </div>
             ))}
