@@ -142,16 +142,16 @@ export default function Header() {
                    <li><RippleAnchor className="dropdown-item header-dropdown-item" href="#" onClick={(e) => { e.preventDefault(); handleCategoryClick('gift', e); }}>Gift Vouchers</RippleAnchor></li>
                  </ul>
                </li>
-                             <li className="nav-item dropdown">
-                 <RippleAnchor className="nav-link dropdown-toggle header-nav-link" href="#" id="aboutDropdown">ABOUT US</RippleAnchor>
-                 <ul className="dropdown-menu header-dropdown-menu">
-                   <li><RippleAnchor className="dropdown-item header-dropdown-item" href="#">Our Story</RippleAnchor></li>
-                   <li><RippleAnchor className="dropdown-item header-dropdown-item" href="#">Farming Practices</RippleAnchor></li>
-                   <li><RippleAnchor className="dropdown-item header-dropdown-item" href="#">Meet the Farmers</RippleAnchor></li>
-                   <li><RippleAnchor className="dropdown-item header-dropdown-item" href="#">Quality & Safety Standards</RippleAnchor></li>
-                   <li><RippleAnchor className="dropdown-item header-dropdown-item" href="#">Careers</RippleAnchor></li>
-                 </ul>
-               </li>
+              <li className="nav-item dropdown">
+                <RippleLink className="nav-link dropdown-toggle header-nav-link" to="/about" id="aboutDropdown">ABOUT US</RippleLink>
+                <ul className="dropdown-menu header-dropdown-menu">
+                  <li><RippleAnchor className="dropdown-item header-dropdown-item" href="#" onClick={(e) => { e.preventDefault(); navigate('/about#our-story'); }}>Our Story</RippleAnchor></li>
+                  <li><RippleAnchor className="dropdown-item header-dropdown-item" href="#" onClick={(e) => { e.preventDefault(); navigate('/about#farming-practices'); }}>Farming Practices</RippleAnchor></li>
+                  <li><RippleAnchor className="dropdown-item header-dropdown-item" href="#" onClick={(e) => { e.preventDefault(); navigate('/about#meet-farmers'); }}>Meet the Farmers</RippleAnchor></li>
+                  <li><RippleAnchor className="dropdown-item header-dropdown-item" href="#" onClick={(e) => { e.preventDefault(); navigate('/about#quality-standards'); }}>Quality & Safety Standards</RippleAnchor></li>
+                  <li><RippleAnchor className="dropdown-item header-dropdown-item" href="#" onClick={(e) => { e.preventDefault(); navigate('/about#careers'); }}>Careers</RippleAnchor></li>
+                </ul>
+              </li>
                              <li className="nav-item dropdown">
                  <RippleLink className="nav-link dropdown-toggle header-nav-link" to="/blog" id="blogDropdown">BLOG</RippleLink>
                  <ul className="dropdown-menu header-dropdown-menu">

@@ -1,0 +1,600 @@
+/* About Us Page Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Smooth scrolling for all sections */
+.aboutus-story,
+.aboutus-practices,
+.aboutus-farmers,
+.aboutus-standards,
+.aboutus-careers,
+.aboutus-testimonial {
+  scroll-margin-top: 80px; /* Account for fixed header */
+}
+
+.aboutus-hero {
+  background: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%);
+  color: white;
+  padding: 120px 0 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.aboutus-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('../images/field.jpg') center/cover;
+  opacity: 0.2;
+  z-index: 1;
+}
+
+.aboutus-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.aboutus-hero h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.aboutus-hero p {
+  font-size: 1.3rem;
+  opacity: 0.9;
+  margin-bottom: 0;
+}
+
+/* Quick Navigation */
+.aboutus-quick-nav {
+  background-color: white;
+  padding: 20px 0;
+  border-bottom: 1px solid #e9ecef;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.aboutus-nav-menu {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.aboutus-nav-menu a {
+  color: #2c5530;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.aboutus-nav-menu a:hover {
+  background-color: #2c5530;
+  color: white;
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+.aboutus-nav-menu a:active {
+  transform: translateY(0);
+}
+
+/* Story Section */
+.aboutus-story {
+  padding: 80px 0;
+  background-color: #f8f9fa;
+}
+
+.aboutus-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.aboutus-story-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.aboutus-story h2 {
+  font-size: 2.5rem;
+  color: #2c5530;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.aboutus-story h4 {
+  color: #6c757d;
+  font-style: italic;
+  margin-bottom: 30px;
+  font-size: 1.2rem;
+}
+
+.aboutus-story p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  color: #495057;
+}
+
+.aboutus-highlight {
+  color: #2c5530;
+  font-weight: 700;
+}
+
+.aboutus-signature {
+  margin-top: 40px;
+  text-align: right;
+  font-style: italic;
+}
+
+.aboutus-signature strong {
+  color: #2c5530;
+  font-size: 1.1rem;
+}
+
+.aboutus-story-image {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.aboutus-story-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Farming Practices Section */
+.aboutus-practices {
+  padding: 80px 0;
+  background-color: white;
+}
+
+.aboutus-practices-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.aboutus-practices h2 {
+  font-size: 2.5rem;
+  color: #2c5530;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.aboutus-practices h4 {
+  color: #6c757d;
+  font-style: italic;
+  font-size: 1.2rem;
+}
+
+.aboutus-practices-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  margin-top: 50px;
+}
+
+.aboutus-practice-item {
+  text-align: center;
+  padding: 30px 20px;
+  border-radius: 10px;
+  background-color: #f8f9fa;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.aboutus-practice-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.aboutus-practice-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #2c5530, #4a7c59);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  color: white;
+  font-size: 2rem;
+}
+
+.aboutus-practice-item h3 {
+  color: #2c5530;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.aboutus-practice-item p {
+  color: #6c757d;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* Meet the Farmers Section */
+.aboutus-farmers {
+  padding: 80px 0;
+  background-color: #f8f9fa;
+}
+
+.aboutus-farmers-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.aboutus-farmers h2 {
+  font-size: 2.5rem;
+  color: #2c5530;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.aboutus-farmers h4 {
+  color: #6c757d;
+  font-style: italic;
+  font-size: 1.2rem;
+}
+
+.aboutus-farmers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+  margin-top: 50px;
+}
+
+.aboutus-farmer-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.aboutus-farmer-card:hover {
+  transform: translateY(-5px);
+}
+
+.aboutus-farmer-image {
+  height: 250px;
+  overflow: hidden;
+}
+
+.aboutus-farmer-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.aboutus-farmer-info {
+  padding: 30px;
+  text-align: center;
+}
+
+.aboutus-farmer-info h3 {
+  color: #2c5530;
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.aboutus-farmer-role {
+  color: #4a7c59;
+  font-weight: 500;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.aboutus-farmer-info p:last-child {
+  color: #6c757d;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* Quality & Safety Standards Section */
+.aboutus-standards {
+  padding: 80px 0;
+  background-color: white;
+}
+
+.aboutus-standards-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.aboutus-standards h2 {
+  font-size: 2.5rem;
+  color: #2c5530;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.aboutus-standards h4 {
+  color: #6c757d;
+  font-style: italic;
+  margin-bottom: 40px;
+  font-size: 1.2rem;
+}
+
+.aboutus-standards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.aboutus-standard-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.aboutus-standard-item i {
+  color: #28a745;
+  font-size: 1.5rem;
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+
+.aboutus-standard-item h4 {
+  color: #2c5530;
+  margin-bottom: 8px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.aboutus-standard-item p {
+  color: #6c757d;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.aboutus-standards-image {
+  text-align: center;
+}
+
+.aboutus-standards-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Careers Section */
+.aboutus-careers {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%);
+  color: white;
+  text-align: center;
+}
+
+.aboutus-careers h2 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.aboutus-careers h4 {
+  opacity: 0.9;
+  font-style: italic;
+  margin-bottom: 30px;
+  font-size: 1.2rem;
+}
+
+.aboutus-careers p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 50px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0.9;
+}
+
+.aboutus-careers-benefits {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.aboutus-benefit-item {
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.aboutus-benefit-item i {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #90EE90;
+}
+
+.aboutus-benefit-item h4 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.aboutus-benefit-item p {
+  opacity: 0.9;
+  margin-bottom: 0;
+  font-size: 1rem;
+}
+
+.aboutus-cta-button {
+  display: inline-block;
+  background-color: white;
+  color: #2c5530;
+  padding: 15px 40px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.aboutus-cta-button:hover {
+  background-color: #f8f9fa;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  color: #2c5530;
+  text-decoration: none;
+}
+
+/* Testimonial Section */
+.aboutus-testimonial {
+  padding: 80px 0;
+  background-color: #f8f9fa;
+  text-align: center;
+}
+
+.aboutus-testimonial-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.aboutus-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 30px;
+  border: 5px solid #2c5530;
+}
+
+.aboutus-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.aboutus-testimonial h2 {
+  font-size: 2.2rem;
+  color: #2c5530;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+.aboutus-quote {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #495057;
+  margin-bottom: 25px;
+  font-style: italic;
+}
+
+.aboutus-stars {
+  font-size: 1.5rem;
+  color: #ffc107;
+  margin-bottom: 20px;
+  letter-spacing: 5px;
+}
+
+.aboutus-author {
+  color: #2c5530;
+  font-size: 1.1rem;
+  margin-bottom: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .aboutus-hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .aboutus-hero p {
+    font-size: 1.1rem;
+  }
+  
+  .aboutus-story h2,
+  .aboutus-practices h2,
+  .aboutus-farmers h2,
+  .aboutus-standards h2,
+  .aboutus-careers h2 {
+    font-size: 2rem;
+  }
+  
+  .aboutus-standards-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .aboutus-farmers-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .aboutus-practices-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .aboutus-careers-benefits {
+    grid-template-columns: 1fr;
+  }
+  
+  .aboutus-nav-menu {
+    gap: 15px;
+  }
+  
+  .aboutus-nav-menu a {
+    font-size: 0.9rem;
+    padding: 8px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .aboutus-hero {
+    padding: 100px 0 60px;
+  }
+  
+  .aboutus-hero h1 {
+    font-size: 2rem;
+  }
+  
+  .aboutus-container {
+    padding: 0 15px;
+  }
+  
+  .aboutus-story,
+  .aboutus-practices,
+  .aboutus-farmers,
+  .aboutus-standards,
+  .aboutus-careers,
+  .aboutus-testimonial {
+    padding: 60px 0;
+  }
+  
+  .aboutus-nav-menu {
+    gap: 10px;
+  }
+  
+  .aboutus-nav-menu a {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+}

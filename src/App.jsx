@@ -10,6 +10,7 @@ import Products from './pages/Products.jsx'
 import ProductDetail from './pages/ProductDetail.jsx'
 import Offers from './pages/Offers.jsx'
 import Blog from './pages/Blog.jsx'
+import AboutUs from './pages/AboutUs.jsx'
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/product/:id" element={<ProductDetail />} />
         <Route path="/offers" element={<Offers />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/about" element={<AboutUs />} />
         <Route path="*" element={<div style={{ padding: 24 }}>Not Found. <Link to="/">Go Home</Link></div>} />
       </Routes>
       <Footer />
