@@ -58,8 +58,8 @@ export default function Cart() {
       {/* Hero Section */}
       <section className="cart-hero">
         <div className="cart-hero-content">
-          <h1>GIỎ HÀNG CỦA BẠN</h1>
-          <p>Kiểm tra và thanh toán các sản phẩm đã chọn</p>
+          <h1>YOUR SHOPPING CART</h1>
+          <p>Review and checkout your selected items</p>
         </div>
       </section>
 
